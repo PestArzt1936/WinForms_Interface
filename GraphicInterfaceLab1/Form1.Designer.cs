@@ -32,166 +32,167 @@ namespace GraphicInterfaceLab1
         
         private void InitializeComponent()
         {
-            System.Windows.Forms.Button button2;
+            System.Windows.Forms.Button ProgrammButton;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.MainPanel = new System.Windows.Forms.Panel();
+            this.AnalyzeButton = new System.Windows.Forms.Button();
+            this.MainButton = new System.Windows.Forms.Button();
+            this.BoxOfNames = new System.Windows.Forms.ComboBox();
+            this.BoxOfTypes = new System.Windows.Forms.ComboBox();
+            this.BoxOfHeads = new System.Windows.Forms.ComboBox();
+            this.InfoPanel = new System.Windows.Forms.Panel();
+            this.MachineActsPanel = new System.Windows.Forms.Panel();
             this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.AxisViewPanel = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.StatusPanel = new System.Windows.Forms.Panel();
+            this.ChartPanel = new System.Windows.Forms.Panel();
             this.temperatureChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panel5 = new System.Windows.Forms.Panel();
-            button2 = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.MessagesPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            ProgrammButton = new System.Windows.Forms.Button();
+            this.MainPanel.SuspendLayout();
+            this.InfoPanel.SuspendLayout();
+            this.MachineActsPanel.SuspendLayout();
+            this.AxisViewPanel.SuspendLayout();
+            this.ChartPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureChart)).BeginInit();
             this.SuspendLayout();
             // 
-            // button2
+            // ProgrammButton
             // 
-            button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
-            button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            button2.ForeColor = System.Drawing.Color.White;
-            button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            button2.Location = new System.Drawing.Point(0, 95);
-            button2.Margin = new System.Windows.Forms.Padding(2);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(272, 62);
-            button2.TabIndex = 1;
-            button2.Text = "Программа";
-            button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            button2.UseVisualStyleBackColor = false;
+            ProgrammButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
+            ProgrammButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            ProgrammButton.ForeColor = System.Drawing.Color.White;
+            ProgrammButton.Image = ((System.Drawing.Image)(resources.GetObject("ProgrammButton.Image")));
+            ProgrammButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            ProgrammButton.Location = new System.Drawing.Point(0, 95);
+            ProgrammButton.Margin = new System.Windows.Forms.Padding(2);
+            ProgrammButton.Name = "ProgrammButton";
+            ProgrammButton.Size = new System.Drawing.Size(272, 62);
+            ProgrammButton.TabIndex = 1;
+            ProgrammButton.Text = "Программа";
+            ProgrammButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            ProgrammButton.UseVisualStyleBackColor = false;
             // 
-            // panel1
+            // MainPanel
             // 
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(78, 83);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(272, 252);
-            this.panel1.TabIndex = 0;
+            this.MainPanel.Controls.Add(this.AnalyzeButton);
+            this.MainPanel.Controls.Add(ProgrammButton);
+            this.MainPanel.Controls.Add(this.MainButton);
+            this.MainPanel.Location = new System.Drawing.Point(78, 83);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(272, 252);
+            this.MainPanel.TabIndex = 0;
             // 
-            // button3
+            // AnalyzeButton
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.Location = new System.Drawing.Point(0, 190);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(272, 62);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Мониторинг";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseCompatibleTextRendering = true;
-            this.button3.UseVisualStyleBackColor = false;
+            this.AnalyzeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
+            this.AnalyzeButton.FlatAppearance.BorderSize = 0;
+            this.AnalyzeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.AnalyzeButton.ForeColor = System.Drawing.Color.White;
+            this.AnalyzeButton.Image = ((System.Drawing.Image)(resources.GetObject("AnalyzeButton.Image")));
+            this.AnalyzeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AnalyzeButton.Location = new System.Drawing.Point(0, 190);
+            this.AnalyzeButton.Margin = new System.Windows.Forms.Padding(2);
+            this.AnalyzeButton.Name = "AnalyzeButton";
+            this.AnalyzeButton.Size = new System.Drawing.Size(272, 62);
+            this.AnalyzeButton.TabIndex = 2;
+            this.AnalyzeButton.Text = "Мониторинг";
+            this.AnalyzeButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AnalyzeButton.UseCompatibleTextRendering = true;
+            this.AnalyzeButton.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // MainButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(272, 62);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Главная";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseCompatibleTextRendering = true;
-            this.button1.UseVisualStyleBackColor = false;
+            this.MainButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
+            this.MainButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.MainButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
+            this.MainButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.MainButton.ForeColor = System.Drawing.Color.White;
+            this.MainButton.Image = ((System.Drawing.Image)(resources.GetObject("MainButton.Image")));
+            this.MainButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MainButton.Location = new System.Drawing.Point(0, 0);
+            this.MainButton.Margin = new System.Windows.Forms.Padding(2);
+            this.MainButton.Name = "MainButton";
+            this.MainButton.Size = new System.Drawing.Size(272, 62);
+            this.MainButton.TabIndex = 0;
+            this.MainButton.Text = "Главная";
+            this.MainButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.MainButton.UseCompatibleTextRendering = true;
+            this.MainButton.UseVisualStyleBackColor = false;
             // 
-            // comboBox1
+            // BoxOfNames
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(187)))), ((int)(((byte)(219)))));
-            this.comboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.comboBox1.ForeColor = System.Drawing.Color.White;
-            this.comboBox1.ItemHeight = 39;
-            this.comboBox1.Location = new System.Drawing.Point(78, 386);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(270, 45);
-            this.comboBox1.TabIndex = 1;
+            this.BoxOfNames.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(187)))), ((int)(((byte)(219)))));
+            this.BoxOfNames.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.BoxOfNames.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BoxOfNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.BoxOfNames.ForeColor = System.Drawing.Color.White;
+            this.BoxOfNames.ItemHeight = 39;
+            this.BoxOfNames.Location = new System.Drawing.Point(78, 386);
+            this.BoxOfNames.Name = "BoxOfNames";
+            this.BoxOfNames.Size = new System.Drawing.Size(270, 45);
+            this.BoxOfNames.TabIndex = 1;
             // 
-            // comboBox2
+            // BoxOfTypes
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(187)))), ((int)(((byte)(219)))));
-            this.comboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.comboBox2.ForeColor = System.Drawing.Color.White;
-            this.comboBox2.ItemHeight = 39;
-            this.comboBox2.Location = new System.Drawing.Point(78, 473);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(270, 45);
-            this.comboBox2.TabIndex = 2;
+            this.BoxOfTypes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(187)))), ((int)(((byte)(219)))));
+            this.BoxOfTypes.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.BoxOfTypes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BoxOfTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.BoxOfTypes.ForeColor = System.Drawing.Color.White;
+            this.BoxOfTypes.ItemHeight = 39;
+            this.BoxOfTypes.Location = new System.Drawing.Point(78, 473);
+            this.BoxOfTypes.Name = "BoxOfTypes";
+            this.BoxOfTypes.Size = new System.Drawing.Size(270, 45);
+            this.BoxOfTypes.TabIndex = 2;
             // 
-            // comboBox3
+            // BoxOfHeads
             // 
-            this.comboBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(187)))), ((int)(((byte)(219)))));
-            this.comboBox3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.comboBox3.ForeColor = System.Drawing.Color.White;
-            this.comboBox3.ItemHeight = 39;
-            this.comboBox3.Location = new System.Drawing.Point(78, 561);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(270, 45);
-            this.comboBox3.TabIndex = 3;
+            this.BoxOfHeads.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(187)))), ((int)(((byte)(219)))));
+            this.BoxOfHeads.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.BoxOfHeads.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BoxOfHeads.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.BoxOfHeads.ForeColor = System.Drawing.Color.White;
+            this.BoxOfHeads.ItemHeight = 39;
+            this.BoxOfHeads.Location = new System.Drawing.Point(78, 561);
+            this.BoxOfHeads.Name = "BoxOfHeads";
+            this.BoxOfHeads.Size = new System.Drawing.Size(270, 45);
+            this.BoxOfHeads.TabIndex = 3;
             // 
-            // panel2
+            // InfoPanel
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
-            this.panel2.Controls.Add(this.panel7);
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Location = new System.Drawing.Point(78, 639);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(270, 329);
-            this.panel2.TabIndex = 4;
+            this.InfoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
+            this.InfoPanel.Controls.Add(this.MachineActsPanel);
+            this.InfoPanel.Controls.Add(this.AxisViewPanel);
+            this.InfoPanel.Location = new System.Drawing.Point(78, 639);
+            this.InfoPanel.Name = "InfoPanel";
+            this.InfoPanel.Size = new System.Drawing.Size(270, 329);
+            this.InfoPanel.TabIndex = 4;
             // 
-            // panel7
+            // MachineActsPanel
             // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.panel7.Controls.Add(this.button13);
-            this.panel7.Controls.Add(this.button12);
-            this.panel7.Controls.Add(this.button11);
-            this.panel7.Controls.Add(this.button10);
-            this.panel7.Location = new System.Drawing.Point(3, 195);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(264, 55);
-            this.panel7.TabIndex = 1;
+            this.MachineActsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.MachineActsPanel.Controls.Add(this.button13);
+            this.MachineActsPanel.Controls.Add(this.button12);
+            this.MachineActsPanel.Controls.Add(this.button11);
+            this.MachineActsPanel.Controls.Add(this.button10);
+            this.MachineActsPanel.Location = new System.Drawing.Point(3, 195);
+            this.MachineActsPanel.Name = "MachineActsPanel";
+            this.MachineActsPanel.Size = new System.Drawing.Size(264, 55);
+            this.MachineActsPanel.TabIndex = 1;
             // 
             // button13
             // 
@@ -235,19 +236,19 @@ namespace GraphicInterfaceLab1
             this.button10.TabIndex = 0;
             this.button10.UseVisualStyleBackColor = false;
             // 
-            // panel6
+            // AxisViewPanel
             // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel6.Controls.Add(this.button9);
-            this.panel6.Controls.Add(this.button8);
-            this.panel6.Controls.Add(this.button7);
-            this.panel6.Controls.Add(this.button6);
-            this.panel6.Controls.Add(this.button5);
-            this.panel6.Controls.Add(this.button4);
-            this.panel6.Location = new System.Drawing.Point(0, 282);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(270, 47);
-            this.panel6.TabIndex = 0;
+            this.AxisViewPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.AxisViewPanel.Controls.Add(this.button9);
+            this.AxisViewPanel.Controls.Add(this.button8);
+            this.AxisViewPanel.Controls.Add(this.button7);
+            this.AxisViewPanel.Controls.Add(this.button6);
+            this.AxisViewPanel.Controls.Add(this.button5);
+            this.AxisViewPanel.Controls.Add(this.button4);
+            this.AxisViewPanel.Location = new System.Drawing.Point(0, 282);
+            this.AxisViewPanel.Name = "AxisViewPanel";
+            this.AxisViewPanel.Size = new System.Drawing.Size(270, 47);
+            this.AxisViewPanel.TabIndex = 0;
             // 
             // button9
             // 
@@ -311,52 +312,65 @@ namespace GraphicInterfaceLab1
             this.button4.Text = "X";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // panel3
+            // StatusPanel
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(112)))), ((int)(((byte)(125)))));
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel3.Location = new System.Drawing.Point(441, 64);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(615, 675);
-            this.panel3.TabIndex = 5;
+            this.StatusPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(112)))), ((int)(((byte)(125)))));
+            this.StatusPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.StatusPanel.Location = new System.Drawing.Point(441, 64);
+            this.StatusPanel.Name = "StatusPanel";
+            this.StatusPanel.Size = new System.Drawing.Size(615, 675);
+            this.StatusPanel.TabIndex = 5;
             // 
-            // panel4
+            // ChartPanel
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel4.Controls.Add(this.temperatureChart);
-            this.panel4.Location = new System.Drawing.Point(1125, 64);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(709, 675);
-            this.panel4.TabIndex = 6;
+            this.ChartPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
+            this.ChartPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ChartPanel.Controls.Add(this.temperatureChart);
+            this.ChartPanel.Location = new System.Drawing.Point(1125, 64);
+            this.ChartPanel.Name = "ChartPanel";
+            this.ChartPanel.Size = new System.Drawing.Size(709, 675);
+            this.ChartPanel.TabIndex = 6;
             // 
             // temperatureChart
             // 
             this.temperatureChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             this.temperatureChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             this.temperatureChart.BorderSkin.PageColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            chartArea1.Name = "ChartArea1";
-            this.temperatureChart.ChartAreas.Add(chartArea1);
+            chartArea4.Name = "ChartArea1";
+            this.temperatureChart.ChartAreas.Add(chartArea4);
             this.temperatureChart.Location = new System.Drawing.Point(0, 0);
             this.temperatureChart.Name = "temperatureChart";
-            series1.BorderWidth = 2;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.IsXValueIndexed = true;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.temperatureChart.Series.Add(series1);
+            series4.BorderWidth = 2;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.IsXValueIndexed = true;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.temperatureChart.Series.Add(series4);
             this.temperatureChart.Size = new System.Drawing.Size(710, 675);
             this.temperatureChart.TabIndex = 0;
             this.temperatureChart.Text = "Температура";
             // 
-            // panel5
+            // MessagesPanel
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            this.panel5.Location = new System.Drawing.Point(440, 784);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1395, 240);
-            this.panel5.TabIndex = 7;
+            this.MessagesPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
+            this.MessagesPanel.Location = new System.Drawing.Point(440, 784);
+            this.MessagesPanel.Name = "MessagesPanel";
+            this.MessagesPanel.Size = new System.Drawing.Size(1395, 240);
+            this.MessagesPanel.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label1.Font = new System.Drawing.Font("Sans Serif Collection", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(79, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(191, 35);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "RHINO";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Form1
             // 
@@ -365,23 +379,24 @@ namespace GraphicInterfaceLab1
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(227)))), ((int)(((byte)(232)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.MessagesPanel);
+            this.Controls.Add(this.ChartPanel);
+            this.Controls.Add(this.StatusPanel);
+            this.Controls.Add(this.InfoPanel);
+            this.Controls.Add(this.BoxOfHeads);
+            this.Controls.Add(this.BoxOfTypes);
+            this.Controls.Add(this.BoxOfNames);
+            this.Controls.Add(this.MainPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
+            this.MainPanel.ResumeLayout(false);
+            this.InfoPanel.ResumeLayout(false);
+            this.MachineActsPanel.ResumeLayout(false);
+            this.AxisViewPanel.ResumeLayout(false);
+            this.ChartPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.temperatureChart)).EndInit();
             this.ResumeLayout(false);
 
@@ -389,29 +404,30 @@ namespace GraphicInterfaceLab1
 
         #endregion
 
-        private Panel panel1;
-        private Button button1;
-        private Button button3;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
-        private ComboBox comboBox3;
-        private Panel panel2;
-        private Panel panel3;
-        private Panel panel4;
-        private Panel panel5;
-        private Panel panel6;
+        private Panel MainPanel;
+        private Button MainButton;
+        private Button AnalyzeButton;
+        private ComboBox BoxOfNames;
+        private ComboBox BoxOfTypes;
+        private ComboBox BoxOfHeads;
+        private Panel InfoPanel;
+        private Panel StatusPanel;
+        private Panel ChartPanel;
+        private Panel MessagesPanel;
+        private Panel AxisViewPanel;
         private Button button8;
         private Button button7;
         private Button button6;
         private Button button5;
         private Button button4;
         private Button button9;
-        private Panel panel7;
+        private Panel MachineActsPanel;
         private System.Windows.Forms.DataVisualization.Charting.Chart temperatureChart;
         private Button button13;
         private Button button12;
         private Button button11;
         private Button button10;
+        private Label label1;
     }
 }
 
