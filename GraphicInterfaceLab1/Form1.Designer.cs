@@ -34,8 +34,8 @@ namespace GraphicInterfaceLab1
         {
             System.Windows.Forms.Button ProgrammButton;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea20 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.AnalyzeButton = new System.Windows.Forms.Button();
             this.MainButton = new System.Windows.Forms.Button();
@@ -60,6 +60,14 @@ namespace GraphicInterfaceLab1
             this.temperatureChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.MessagesPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ProgrammButton = new System.Windows.Forms.Button();
             this.MainPanel.SuspendLayout();
             this.InfoPanel.SuspendLayout();
@@ -175,6 +183,7 @@ namespace GraphicInterfaceLab1
             // InfoPanel
             // 
             this.InfoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
+            this.InfoPanel.Controls.Add(this.label5);
             this.InfoPanel.Controls.Add(this.MachineActsPanel);
             this.InfoPanel.Controls.Add(this.AxisViewPanel);
             this.InfoPanel.Location = new System.Drawing.Point(78, 639);
@@ -336,17 +345,17 @@ namespace GraphicInterfaceLab1
             this.temperatureChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             this.temperatureChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             this.temperatureChart.BorderSkin.PageColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            chartArea4.Name = "ChartArea1";
-            this.temperatureChart.ChartAreas.Add(chartArea4);
+            chartArea20.Name = "ChartArea1";
+            this.temperatureChart.ChartAreas.Add(chartArea20);
             this.temperatureChart.Location = new System.Drawing.Point(0, 0);
             this.temperatureChart.Name = "temperatureChart";
-            series4.BorderWidth = 2;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.IsXValueIndexed = true;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.temperatureChart.Series.Add(series4);
+            series20.BorderWidth = 2;
+            series20.ChartArea = "ChartArea1";
+            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series20.IsXValueIndexed = true;
+            series20.Legend = "Legend1";
+            series20.Name = "Series1";
+            this.temperatureChart.Series.Add(series20);
             this.temperatureChart.Size = new System.Drawing.Size(710, 675);
             this.temperatureChart.TabIndex = 0;
             this.temperatureChart.Text = "Температура";
@@ -362,7 +371,7 @@ namespace GraphicInterfaceLab1
             // label1
             // 
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label1.Font = new System.Drawing.Font("Sans Serif Collection", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(79, 9);
@@ -372,6 +381,90 @@ namespace GraphicInterfaceLab1
             this.label1.Text = "RHINO";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(78, 352);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(278, 26);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Наименование станка:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(78, 439);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(138, 28);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Тип станка:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(78, 527);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(204, 26);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Выбор головы:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.label5.Location = new System.Drawing.Point(62, 253);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(130, 23);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "None";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(490, 13);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(513, 48);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Мониторинг значений";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(890, 8);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(370, 31);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Вертикально-фрезерный ST-30F";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(1125, 17);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(710, 44);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "График изменения температуры привода";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Calibri", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(432, 742);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(508, 39);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Активные сообщения";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -379,6 +472,13 @@ namespace GraphicInterfaceLab1
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(227)))), ((int)(((byte)(232)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.MessagesPanel);
             this.Controls.Add(this.ChartPanel);
@@ -428,6 +528,14 @@ namespace GraphicInterfaceLab1
         private Button button11;
         private Button button10;
         private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
+        private Label label6;
+        private Label label7;
+        private Label label8;
+        private Label label9;
     }
 }
 
