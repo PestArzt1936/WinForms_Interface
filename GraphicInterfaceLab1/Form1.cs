@@ -7,11 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GraphicInterfaceLab1;
+using GraphicInterfaceLab1.Properties;
 
 namespace GraphicInterfaceLab1
 {
     public partial class Form1 : Form
     {
+        private LimitedCollection<LogMessage> messages = new LimitedCollection<LogMessage>(6);
+        public Form1()
+        {
+            InitializeComponent();
+            this.Load += Form1_load;
+            this.Load += ChartTest;
+            this.Load += MessageDataForm;
+            this.Load += MessageTest;
+        }
         private void Form1_load(object sender,EventArgs e)
         {
             DateTime baseDate = System.DateTime.Today;
@@ -52,11 +63,91 @@ namespace GraphicInterfaceLab1
             series.Points.AddXY(Test.AddHours(18), 20);
             temperatureChart.Series.Add(series);
         }
-        public Form1()
+        public void AddNewMessage(string Type,int Tunnel, int Code, string Description)
         {
-            InitializeComponent();
-            this.Load += Form1_load;
-            this.Load += ChartTest;
+            Image icon = (Type == "Warn")
+                 ? Properties.Resources.attention_circle
+                 : Properties.Resources.help_circle;
+            messages.Add(new LogMessage
+            {
+                Image = icon,
+                Time = DateTime.Now.ToString("HH:mm:ss"),
+                Type = Type,
+                Tunnel = Tunnel,
+                Code = Code,
+                Description = Description
+            });
+            MessagesDataGrid.FirstDisplayedScrollingRowIndex = MessagesDataGrid.RowCount-1;
         }
+        private void MessageTest(object sender, EventArgs e)
+        {
+            AddNewMessage("Warn", 1, 404, "Something went wrong");
+            AddNewMessage("Info", 2, 5, "Connection succesful");
+            AddNewMessage("Info", 2, 5, "Connection succesful");
+            AddNewMessage("Info", 2, 5, "Connection succesful");
+            AddNewMessage("Info", 2, 5, "Connection succesful");
+            AddNewMessage("Info", 2, 5, "Connection succesful");
+        }
+        private void MessageDataForm(object sender, EventArgs e)
+        {
+            MessagesDataGrid.AutoGenerateColumns = false;
+            MessagesDataGrid.Columns.Clear();
+
+            MessagesDataGrid.DefaultCellStyle.NullValue = null;
+            MessagesDataGrid.EnableHeadersVisualStyles = false;
+            MessagesDataGrid.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(121)))), ((int)(((byte)(136)))));
+            MessagesDataGrid.RowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            MessagesDataGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            MessagesDataGrid.RowsDefaultCellStyle.SelectionBackColor = Color.Transparent;
+            MessagesDataGrid.ColumnHeadersHeight = 27;
+
+            DataGridViewImageColumn IconColumn = new DataGridViewImageColumn();
+            IconColumn.Name = "ErrorType";
+            IconColumn.HeaderText = " ";
+            IconColumn.Width = 52;
+            IconColumn.DataPropertyName = "Image";
+            MessagesDataGrid.Columns.Add(IconColumn);
+
+            DataGridViewTextBoxColumn ViewColumn = new DataGridViewTextBoxColumn();
+            ViewColumn.Name = "Type";
+            ViewColumn.HeaderText = "Вид";
+            ViewColumn.Width = 83;
+            ViewColumn.DataPropertyName = "Type";
+            MessagesDataGrid.Columns.Add(ViewColumn);
+
+            DataGridViewTextBoxColumn TimeColumn = new DataGridViewTextBoxColumn();
+            TimeColumn.Name = "Time";
+            TimeColumn.HeaderText = "Время";
+            TimeColumn.Width = 105;
+            TimeColumn.DataPropertyName = "Time";
+            MessagesDataGrid.Columns.Add(TimeColumn);
+
+            DataGridViewTextBoxColumn TunnelColumn = new DataGridViewTextBoxColumn();
+            TunnelColumn.Name = "Tunnel";
+            TunnelColumn.HeaderText = "Канал";
+            TunnelColumn.Width = 105;
+            TunnelColumn.DataPropertyName = "Tunnel";
+            MessagesDataGrid.Columns.Add(TunnelColumn);
+
+            DataGridViewTextBoxColumn CodeColumn = new DataGridViewTextBoxColumn();
+            CodeColumn.Name = "Code";
+            CodeColumn.HeaderText = "Номер";
+            CodeColumn.Width = 105;
+            CodeColumn.DataPropertyName = "Code";
+            MessagesDataGrid.Columns.Add(CodeColumn);
+
+            DataGridViewTextBoxColumn DescColumn = new DataGridViewTextBoxColumn();
+            DescColumn.Name = "Description";
+            DescColumn.HeaderText = "Текст";
+            DescColumn.Width = 940;
+            DescColumn.DataPropertyName = "Description";
+            MessagesDataGrid.Columns.Add(DescColumn);
+
+            MessagesDataGrid.RowTemplate.Height = 28;
+            MessagesDataGrid.DataSource = messages;
+
+        }
+        
+
     }
 }
