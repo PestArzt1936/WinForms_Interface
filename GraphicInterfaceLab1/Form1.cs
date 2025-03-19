@@ -14,14 +14,31 @@ namespace GraphicInterfaceLab1
 {
     public partial class Form1 : Form
     {
+        private byte ActiveMessageState;
+        private Button[] ActiveMessagesButtons = new Button[7];
         private LimitedCollection<LogMessage> messages = new LimitedCollection<LogMessage>(6);
+
+        private void Initialization()
+        {
+            ActiveMessagesButtons[0] = AM_CNCButton;
+            ActiveMessagesButtons[1] = AM_AxisXButton;
+            ActiveMessagesButtons[2] = AM_AxisYButton;
+            ActiveMessagesButtons[3] = AM_AxisZButton;
+            ActiveMessagesButtons[4] = AM_AxisCButton;
+            ActiveMessagesButtons[5] = AM_AxisCRevButton;
+            ActiveMessagesButtons[6] = AM_SpiendelButton;
+            ActiveMessageState = 0;
+        }
         public Form1()
         {
             InitializeComponent();
+            Initialization();
             this.Load += Form1_load;
             this.Load += ChartTest;
             this.Load += MessageDataForm;
             this.Load += MessageTest;
+            TemperatureValuesPanel.Paint += TemperatureValuesTable;
+            StatusPanel.Paint += StatusPanelPaint;
         }
         private void Form1_load(object sender,EventArgs e)
         {
@@ -44,6 +61,31 @@ namespace GraphicInterfaceLab1
 
             temperatureChart.ChartAreas[0].BackColor= System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             temperatureChart.Legends.Clear();
+        }
+        private void StatusPanelPaint(object sender, PaintEventArgs e)
+        {
+            StatusPanel = (Panel)sender;
+            using (Pen pen = new Pen(System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97))))), 4))
+            {
+                e.Graphics.DrawLine(pen, 0, 343, StatusPanel.Width, 343);
+            }
+        }
+        private void TemperatureValuesTable(object sender, PaintEventArgs e)
+        {
+            TemperatureValuesPanel = (Panel)sender;
+            using (Pen pen = new Pen(Color.Black, 1))
+            {
+                e.Graphics.DrawLine(pen, 126, 0, 126, TemperatureValuesPanel.Height-10);
+                e.Graphics.DrawLine(pen, 247, 0, 247, TemperatureValuesPanel.Height-10);
+                int i = 0;
+                for (int y = 47; y < TemperatureValuesPanel.Height; y += 49)
+                {
+                    i++;
+                    e.Graphics.DrawLine(pen, 0, y, TemperatureValuesPanel.Width, y);
+                    if (i == 4)
+                        break;
+                }
+            }
         }
         private void ChartTest(object sender,EventArgs e)
         {
@@ -90,22 +132,27 @@ namespace GraphicInterfaceLab1
         }
         private void MessageDataForm(object sender, EventArgs e)
         {
+            MessagesDataGrid.EditMode = DataGridViewEditMode.EditProgrammatically;
             MessagesDataGrid.AutoGenerateColumns = false;
             MessagesDataGrid.Columns.Clear();
+            MessagesDataGrid.ReadOnly = true;
 
             MessagesDataGrid.DefaultCellStyle.NullValue = null;
             MessagesDataGrid.EnableHeadersVisualStyles = false;
             MessagesDataGrid.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(121)))), ((int)(((byte)(136)))));
             MessagesDataGrid.RowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             MessagesDataGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            MessagesDataGrid.RowsDefaultCellStyle.SelectionBackColor = Color.Transparent;
+            MessagesDataGrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.Transparent;
+            MessagesDataGrid.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             MessagesDataGrid.ColumnHeadersHeight = 27;
+            MessagesDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             DataGridViewImageColumn IconColumn = new DataGridViewImageColumn();
             IconColumn.Name = "ErrorType";
             IconColumn.HeaderText = " ";
             IconColumn.Width = 52;
             IconColumn.DataPropertyName = "Image";
+            IconColumn.DefaultCellStyle.SelectionBackColor = Color.Transparent;
             MessagesDataGrid.Columns.Add(IconColumn);
 
             DataGridViewTextBoxColumn ViewColumn = new DataGridViewTextBoxColumn();
@@ -113,6 +160,7 @@ namespace GraphicInterfaceLab1
             ViewColumn.HeaderText = "Вид";
             ViewColumn.Width = 83;
             ViewColumn.DataPropertyName = "Type";
+            ViewColumn.DefaultCellStyle.SelectionBackColor= System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(196)))), ((int)(((byte)(238)))));
             MessagesDataGrid.Columns.Add(ViewColumn);
 
             DataGridViewTextBoxColumn TimeColumn = new DataGridViewTextBoxColumn();
@@ -120,6 +168,7 @@ namespace GraphicInterfaceLab1
             TimeColumn.HeaderText = "Время";
             TimeColumn.Width = 105;
             TimeColumn.DataPropertyName = "Time";
+            TimeColumn.DefaultCellStyle.SelectionBackColor= System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(196)))), ((int)(((byte)(238)))));
             MessagesDataGrid.Columns.Add(TimeColumn);
 
             DataGridViewTextBoxColumn TunnelColumn = new DataGridViewTextBoxColumn();
@@ -127,6 +176,7 @@ namespace GraphicInterfaceLab1
             TunnelColumn.HeaderText = "Канал";
             TunnelColumn.Width = 105;
             TunnelColumn.DataPropertyName = "Tunnel";
+            TunnelColumn.DefaultCellStyle.SelectionBackColor= System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(196)))), ((int)(((byte)(238)))));
             MessagesDataGrid.Columns.Add(TunnelColumn);
 
             DataGridViewTextBoxColumn CodeColumn = new DataGridViewTextBoxColumn();
@@ -134,6 +184,7 @@ namespace GraphicInterfaceLab1
             CodeColumn.HeaderText = "Номер";
             CodeColumn.Width = 105;
             CodeColumn.DataPropertyName = "Code";
+            CodeColumn.DefaultCellStyle.SelectionBackColor= System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(196)))), ((int)(((byte)(238)))));
             MessagesDataGrid.Columns.Add(CodeColumn);
 
             DataGridViewTextBoxColumn DescColumn = new DataGridViewTextBoxColumn();
@@ -141,13 +192,58 @@ namespace GraphicInterfaceLab1
             DescColumn.HeaderText = "Текст";
             DescColumn.Width = 940;
             DescColumn.DataPropertyName = "Description";
+            DescColumn.DefaultCellStyle.SelectionBackColor= System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(196)))), ((int)(((byte)(238)))));
             MessagesDataGrid.Columns.Add(DescColumn);
 
             MessagesDataGrid.RowTemplate.Height = 28;
             MessagesDataGrid.DataSource = messages;
 
         }
-        
+        private void ChangeActiveMessageState(object sender)
+        {
+            ActiveMessagesButtons[Convert.ToInt32(ActiveMessageState)].BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
+            for(int j = 0; j < ActiveMessagesButtons.Length; j++)
+            {
+                if (ActiveMessagesButtons[j] == sender) {
+                    ActiveMessageState = Convert.ToByte(j);
+                    ActiveMessagesButtons[j].BackColor= System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(160)))), ((int)(((byte)(245)))));
+                }
+            }
+            
+        }
+        private void AM_CNCButton_Click(object sender, EventArgs e)
+        {
+            ChangeActiveMessageState(sender);
+        }
 
+        private void AM_AxisXButton_Click(object sender, EventArgs e)
+        {
+            ChangeActiveMessageState(sender);
+        }
+
+        private void AM_AxisYButton_Click(object sender, EventArgs e)
+        {
+            ChangeActiveMessageState(sender);
+        }
+
+        private void AM_AxisZButton_Click(object sender, EventArgs e)
+        {
+            ChangeActiveMessageState(sender);
+        }
+
+        private void AM_AxisCButton_Click(object sender, EventArgs e)
+        {
+            ChangeActiveMessageState(sender);
+        }
+
+        private void AM_AxisCRevButton_Click(object sender, EventArgs e)
+        {
+            ChangeActiveMessageState(sender);
+        }
+
+        private void AM_SpiendelButton_Click(object sender, EventArgs e)
+        {
+            ChangeActiveMessageState(sender);
+        }
     }
 }

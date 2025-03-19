@@ -34,8 +34,8 @@ namespace GraphicInterfaceLab1
         {
             System.Windows.Forms.Button ProgrammButton;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.AnalyzeButton = new System.Windows.Forms.Button();
             this.MainButton = new System.Windows.Forms.Button();
@@ -57,6 +57,27 @@ namespace GraphicInterfaceLab1
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.StatusPanel = new System.Windows.Forms.Panel();
+            this.TemperatureValuesPanel = new System.Windows.Forms.Panel();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -83,13 +104,13 @@ namespace GraphicInterfaceLab1
             this.temperatureChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.MessagesPanel = new System.Windows.Forms.Panel();
             this.MessagesDataGrid = new System.Windows.Forms.DataGridView();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AM_SpiendelButton = new System.Windows.Forms.Button();
+            this.AM_AxisCRevButton = new System.Windows.Forms.Button();
+            this.AM_AxisCButton = new System.Windows.Forms.Button();
+            this.AM_AxisZButton = new System.Windows.Forms.Button();
+            this.AM_AxisYButton = new System.Windows.Forms.Button();
+            this.AM_AxisXButton = new System.Windows.Forms.Button();
+            this.AM_CNCButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -98,12 +119,14 @@ namespace GraphicInterfaceLab1
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.ReloadChartButton = new System.Windows.Forms.Button();
             ProgrammButton = new System.Windows.Forms.Button();
             this.MainPanel.SuspendLayout();
             this.InfoPanel.SuspendLayout();
             this.MachineActsPanel.SuspendLayout();
             this.AxisViewPanel.SuspendLayout();
             this.StatusPanel.SuspendLayout();
+            this.TemperatureValuesPanel.SuspendLayout();
             this.ChartPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureChart)).BeginInit();
             this.MessagesPanel.SuspendLayout();
@@ -369,6 +392,12 @@ namespace GraphicInterfaceLab1
             // 
             this.StatusPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             this.StatusPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.StatusPanel.Controls.Add(this.TemperatureValuesPanel);
+            this.StatusPanel.Controls.Add(this.label36);
+            this.StatusPanel.Controls.Add(this.label35);
+            this.StatusPanel.Controls.Add(this.label34);
+            this.StatusPanel.Controls.Add(this.label33);
+            this.StatusPanel.Controls.Add(this.label32);
             this.StatusPanel.Controls.Add(this.label31);
             this.StatusPanel.Controls.Add(this.label30);
             this.StatusPanel.Controls.Add(this.label29);
@@ -395,6 +424,248 @@ namespace GraphicInterfaceLab1
             this.StatusPanel.Name = "StatusPanel";
             this.StatusPanel.Size = new System.Drawing.Size(615, 675);
             this.StatusPanel.TabIndex = 5;
+            // 
+            // TemperatureValuesPanel
+            // 
+            this.TemperatureValuesPanel.Controls.Add(this.label51);
+            this.TemperatureValuesPanel.Controls.Add(this.label50);
+            this.TemperatureValuesPanel.Controls.Add(this.label49);
+            this.TemperatureValuesPanel.Controls.Add(this.label48);
+            this.TemperatureValuesPanel.Controls.Add(this.label47);
+            this.TemperatureValuesPanel.Controls.Add(this.label46);
+            this.TemperatureValuesPanel.Controls.Add(this.label45);
+            this.TemperatureValuesPanel.Controls.Add(this.label44);
+            this.TemperatureValuesPanel.Controls.Add(this.label43);
+            this.TemperatureValuesPanel.Controls.Add(this.label42);
+            this.TemperatureValuesPanel.Controls.Add(this.label41);
+            this.TemperatureValuesPanel.Controls.Add(this.label40);
+            this.TemperatureValuesPanel.Controls.Add(this.label39);
+            this.TemperatureValuesPanel.Controls.Add(this.label38);
+            this.TemperatureValuesPanel.Controls.Add(this.label37);
+            this.TemperatureValuesPanel.Location = new System.Drawing.Point(197, 407);
+            this.TemperatureValuesPanel.Name = "TemperatureValuesPanel";
+            this.TemperatureValuesPanel.Size = new System.Drawing.Size(366, 247);
+            this.TemperatureValuesPanel.TabIndex = 27;
+            // 
+            // label51
+            // 
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label51.ForeColor = System.Drawing.Color.White;
+            this.label51.Location = new System.Drawing.Point(250, 196);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(118, 45);
+            this.label51.TabIndex = 34;
+            this.label51.Text = "0.0";
+            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label50
+            // 
+            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label50.ForeColor = System.Drawing.Color.White;
+            this.label50.Location = new System.Drawing.Point(250, 147);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(118, 45);
+            this.label50.TabIndex = 33;
+            this.label50.Text = "0.0";
+            this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label49
+            // 
+            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label49.ForeColor = System.Drawing.Color.White;
+            this.label49.Location = new System.Drawing.Point(250, 98);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(118, 45);
+            this.label49.TabIndex = 32;
+            this.label49.Text = "0.0";
+            this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label48
+            // 
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label48.ForeColor = System.Drawing.Color.White;
+            this.label48.Location = new System.Drawing.Point(250, 49);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(118, 45);
+            this.label48.TabIndex = 31;
+            this.label48.Text = "0.0";
+            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label47
+            // 
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label47.ForeColor = System.Drawing.Color.White;
+            this.label47.Location = new System.Drawing.Point(250, 0);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(118, 45);
+            this.label47.TabIndex = 30;
+            this.label47.Text = "0.0";
+            this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label46
+            // 
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label46.ForeColor = System.Drawing.Color.White;
+            this.label46.Location = new System.Drawing.Point(128, 196);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(118, 45);
+            this.label46.TabIndex = 29;
+            this.label46.Text = "0.0";
+            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label45
+            // 
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label45.ForeColor = System.Drawing.Color.White;
+            this.label45.Location = new System.Drawing.Point(128, 147);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(118, 45);
+            this.label45.TabIndex = 28;
+            this.label45.Text = "0.0";
+            this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label44
+            // 
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label44.ForeColor = System.Drawing.Color.White;
+            this.label44.Location = new System.Drawing.Point(128, 98);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(118, 45);
+            this.label44.TabIndex = 27;
+            this.label44.Text = "0.0";
+            this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label43
+            // 
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label43.ForeColor = System.Drawing.Color.White;
+            this.label43.Location = new System.Drawing.Point(128, 49);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(118, 45);
+            this.label43.TabIndex = 26;
+            this.label43.Text = "0.0";
+            this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label42
+            // 
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label42.ForeColor = System.Drawing.Color.White;
+            this.label42.Location = new System.Drawing.Point(128, 0);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(118, 45);
+            this.label42.TabIndex = 25;
+            this.label42.Text = "0.0";
+            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label41
+            // 
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label41.ForeColor = System.Drawing.Color.White;
+            this.label41.Location = new System.Drawing.Point(0, 196);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(118, 45);
+            this.label41.TabIndex = 24;
+            this.label41.Text = "0.0";
+            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label40
+            // 
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label40.ForeColor = System.Drawing.Color.White;
+            this.label40.Location = new System.Drawing.Point(0, 147);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(118, 45);
+            this.label40.TabIndex = 23;
+            this.label40.Text = "0.0";
+            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label39
+            // 
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label39.ForeColor = System.Drawing.Color.White;
+            this.label39.Location = new System.Drawing.Point(0, 98);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(118, 45);
+            this.label39.TabIndex = 22;
+            this.label39.Text = "0.0";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label38
+            // 
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label38.ForeColor = System.Drawing.Color.White;
+            this.label38.Location = new System.Drawing.Point(0, 49);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(118, 45);
+            this.label38.TabIndex = 21;
+            this.label38.Text = "0.0";
+            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label37
+            // 
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label37.ForeColor = System.Drawing.Color.White;
+            this.label37.Location = new System.Drawing.Point(0, 0);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(118, 45);
+            this.label37.TabIndex = 20;
+            this.label37.Text = "0.0";
+            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label36
+            // 
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label36.ForeColor = System.Drawing.Color.White;
+            this.label36.Location = new System.Drawing.Point(492, 267);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(120, 35);
+            this.label36.TabIndex = 26;
+            this.label36.Text = "град.";
+            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label35
+            // 
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label35.ForeColor = System.Drawing.Color.White;
+            this.label35.Location = new System.Drawing.Point(492, 209);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(120, 35);
+            this.label35.TabIndex = 25;
+            this.label35.Text = "град.";
+            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label34
+            // 
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label34.ForeColor = System.Drawing.Color.White;
+            this.label34.Location = new System.Drawing.Point(492, 161);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(66, 35);
+            this.label34.TabIndex = 24;
+            this.label34.Text = "мм";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label33
+            // 
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label33.ForeColor = System.Drawing.Color.White;
+            this.label33.Location = new System.Drawing.Point(492, 108);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(66, 35);
+            this.label33.TabIndex = 23;
+            this.label33.Text = "мм";
+            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label32
+            // 
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label32.ForeColor = System.Drawing.Color.White;
+            this.label32.Location = new System.Drawing.Point(492, 59);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(66, 35);
+            this.label32.TabIndex = 22;
+            this.label32.Text = "мм";
+            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label31
             // 
@@ -552,11 +823,12 @@ namespace GraphicInterfaceLab1
             // 
             // label17
             // 
+            this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
-            this.label17.Location = new System.Drawing.Point(154, 353);
+            this.label17.Location = new System.Drawing.Point(154, 343);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(417, 43);
+            this.label17.Size = new System.Drawing.Size(417, 53);
             this.label17.TabIndex = 7;
             this.label17.Text = "Значение температуры";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -648,6 +920,7 @@ namespace GraphicInterfaceLab1
             // 
             this.ChartPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             this.ChartPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ChartPanel.Controls.Add(this.ReloadChartButton);
             this.ChartPanel.Controls.Add(this.temperatureChart);
             this.ChartPanel.Location = new System.Drawing.Point(1125, 64);
             this.ChartPanel.Name = "ChartPanel";
@@ -659,17 +932,17 @@ namespace GraphicInterfaceLab1
             this.temperatureChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             this.temperatureChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             this.temperatureChart.BorderSkin.PageColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            chartArea7.Name = "ChartArea1";
-            this.temperatureChart.ChartAreas.Add(chartArea7);
+            chartArea9.Name = "ChartArea1";
+            this.temperatureChart.ChartAreas.Add(chartArea9);
             this.temperatureChart.Location = new System.Drawing.Point(0, 0);
             this.temperatureChart.Name = "temperatureChart";
-            series7.BorderWidth = 2;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series7.IsXValueIndexed = true;
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            this.temperatureChart.Series.Add(series7);
+            series9.BorderWidth = 2;
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.IsXValueIndexed = true;
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.temperatureChart.Series.Add(series9);
             this.temperatureChart.Size = new System.Drawing.Size(710, 675);
             this.temperatureChart.TabIndex = 0;
             this.temperatureChart.Text = "Температура";
@@ -678,13 +951,13 @@ namespace GraphicInterfaceLab1
             // 
             this.MessagesPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             this.MessagesPanel.Controls.Add(this.MessagesDataGrid);
-            this.MessagesPanel.Controls.Add(this.button17);
-            this.MessagesPanel.Controls.Add(this.button16);
-            this.MessagesPanel.Controls.Add(this.button15);
-            this.MessagesPanel.Controls.Add(this.button14);
-            this.MessagesPanel.Controls.Add(this.button3);
-            this.MessagesPanel.Controls.Add(this.button2);
-            this.MessagesPanel.Controls.Add(this.button1);
+            this.MessagesPanel.Controls.Add(this.AM_SpiendelButton);
+            this.MessagesPanel.Controls.Add(this.AM_AxisCRevButton);
+            this.MessagesPanel.Controls.Add(this.AM_AxisCButton);
+            this.MessagesPanel.Controls.Add(this.AM_AxisZButton);
+            this.MessagesPanel.Controls.Add(this.AM_AxisYButton);
+            this.MessagesPanel.Controls.Add(this.AM_AxisXButton);
+            this.MessagesPanel.Controls.Add(this.AM_CNCButton);
             this.MessagesPanel.Location = new System.Drawing.Point(440, 784);
             this.MessagesPanel.Name = "MessagesPanel";
             this.MessagesPanel.Size = new System.Drawing.Size(1395, 226);
@@ -703,82 +976,89 @@ namespace GraphicInterfaceLab1
             this.MessagesDataGrid.Size = new System.Drawing.Size(1393, 198);
             this.MessagesDataGrid.TabIndex = 22;
             // 
-            // button17
+            // AM_SpiendelButton
             // 
-            this.button17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            this.button17.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.button17.Location = new System.Drawing.Point(660, 0);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(133, 30);
-            this.button17.TabIndex = 6;
-            this.button17.Text = "Шпиндель";
-            this.button17.UseVisualStyleBackColor = false;
+            this.AM_SpiendelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
+            this.AM_SpiendelButton.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AM_SpiendelButton.Location = new System.Drawing.Point(660, 0);
+            this.AM_SpiendelButton.Name = "AM_SpiendelButton";
+            this.AM_SpiendelButton.Size = new System.Drawing.Size(133, 30);
+            this.AM_SpiendelButton.TabIndex = 6;
+            this.AM_SpiendelButton.Text = "Шпиндель";
+            this.AM_SpiendelButton.UseVisualStyleBackColor = false;
+            this.AM_SpiendelButton.Click += new System.EventHandler(this.AM_SpiendelButton_Click);
             // 
-            // button16
+            // AM_AxisCRevButton
             // 
-            this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            this.button16.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.button16.Location = new System.Drawing.Point(555, 0);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(109, 30);
-            this.button16.TabIndex = 5;
-            this.button16.Text = "Ось C\'";
-            this.button16.UseVisualStyleBackColor = false;
+            this.AM_AxisCRevButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
+            this.AM_AxisCRevButton.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AM_AxisCRevButton.Location = new System.Drawing.Point(555, 0);
+            this.AM_AxisCRevButton.Name = "AM_AxisCRevButton";
+            this.AM_AxisCRevButton.Size = new System.Drawing.Size(109, 30);
+            this.AM_AxisCRevButton.TabIndex = 5;
+            this.AM_AxisCRevButton.Text = "Ось C\'";
+            this.AM_AxisCRevButton.UseVisualStyleBackColor = false;
+            this.AM_AxisCRevButton.Click += new System.EventHandler(this.AM_AxisCRevButton_Click);
             // 
-            // button15
+            // AM_AxisCButton
             // 
-            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            this.button15.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.button15.Location = new System.Drawing.Point(450, 0);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(109, 30);
-            this.button15.TabIndex = 4;
-            this.button15.Text = "Ось C";
-            this.button15.UseVisualStyleBackColor = false;
+            this.AM_AxisCButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
+            this.AM_AxisCButton.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AM_AxisCButton.Location = new System.Drawing.Point(450, 0);
+            this.AM_AxisCButton.Name = "AM_AxisCButton";
+            this.AM_AxisCButton.Size = new System.Drawing.Size(109, 30);
+            this.AM_AxisCButton.TabIndex = 4;
+            this.AM_AxisCButton.Text = "Ось C";
+            this.AM_AxisCButton.UseVisualStyleBackColor = false;
+            this.AM_AxisCButton.Click += new System.EventHandler(this.AM_AxisCButton_Click);
             // 
-            // button14
+            // AM_AxisZButton
             // 
-            this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            this.button14.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.button14.Location = new System.Drawing.Point(345, 0);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(109, 30);
-            this.button14.TabIndex = 3;
-            this.button14.Text = "Ось Z";
-            this.button14.UseVisualStyleBackColor = false;
+            this.AM_AxisZButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
+            this.AM_AxisZButton.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AM_AxisZButton.Location = new System.Drawing.Point(345, 0);
+            this.AM_AxisZButton.Name = "AM_AxisZButton";
+            this.AM_AxisZButton.Size = new System.Drawing.Size(109, 30);
+            this.AM_AxisZButton.TabIndex = 3;
+            this.AM_AxisZButton.Text = "Ось Z";
+            this.AM_AxisZButton.UseVisualStyleBackColor = false;
+            this.AM_AxisZButton.Click += new System.EventHandler(this.AM_AxisZButton_Click);
             // 
-            // button3
+            // AM_AxisYButton
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            this.button3.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(240, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(109, 30);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Ось Y";
-            this.button3.UseVisualStyleBackColor = false;
+            this.AM_AxisYButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
+            this.AM_AxisYButton.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AM_AxisYButton.Location = new System.Drawing.Point(240, 0);
+            this.AM_AxisYButton.Name = "AM_AxisYButton";
+            this.AM_AxisYButton.Size = new System.Drawing.Size(109, 30);
+            this.AM_AxisYButton.TabIndex = 2;
+            this.AM_AxisYButton.Text = "Ось Y";
+            this.AM_AxisYButton.UseVisualStyleBackColor = false;
+            this.AM_AxisYButton.Click += new System.EventHandler(this.AM_AxisYButton_Click);
             // 
-            // button2
+            // AM_AxisXButton
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            this.button2.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(135, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(109, 30);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Ось X";
-            this.button2.UseVisualStyleBackColor = false;
+            this.AM_AxisXButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
+            this.AM_AxisXButton.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AM_AxisXButton.Location = new System.Drawing.Point(135, 0);
+            this.AM_AxisXButton.Name = "AM_AxisXButton";
+            this.AM_AxisXButton.Size = new System.Drawing.Size(109, 30);
+            this.AM_AxisXButton.TabIndex = 1;
+            this.AM_AxisXButton.Text = "Ось X";
+            this.AM_AxisXButton.UseVisualStyleBackColor = false;
+            this.AM_AxisXButton.Click += new System.EventHandler(this.AM_AxisXButton_Click);
             // 
-            // button1
+            // AM_CNCButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(160)))), ((int)(((byte)(245)))));
-            this.button1.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(52, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 30);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "СЧПУ";
-            this.button1.UseVisualStyleBackColor = false;
+            this.AM_CNCButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(160)))), ((int)(((byte)(245)))));
+            this.AM_CNCButton.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AM_CNCButton.Location = new System.Drawing.Point(52, 0);
+            this.AM_CNCButton.Name = "AM_CNCButton";
+            this.AM_CNCButton.Size = new System.Drawing.Size(88, 30);
+            this.AM_CNCButton.TabIndex = 0;
+            this.AM_CNCButton.Text = "СЧПУ";
+            this.AM_CNCButton.UseVisualStyleBackColor = false;
+            this.AM_CNCButton.Click += new System.EventHandler(this.AM_CNCButton_Click);
             // 
             // label1
             // 
@@ -841,7 +1121,7 @@ namespace GraphicInterfaceLab1
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(370, 31);
             this.label7.TabIndex = 13;
-            this.label7.Text = "Вертикально-фрезерный ST-30F";
+            this.label7.Text = "None";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
@@ -865,6 +1145,17 @@ namespace GraphicInterfaceLab1
             this.label9.TabIndex = 15;
             this.label9.Text = "Активные сообщения";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ReloadChartButton
+            // 
+            this.ReloadChartButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReloadChartButton.BackgroundImage")));
+            this.ReloadChartButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ReloadChartButton.Location = new System.Drawing.Point(679, 0);
+            this.ReloadChartButton.Name = "ReloadChartButton";
+            this.ReloadChartButton.Size = new System.Drawing.Size(30, 30);
+            this.ReloadChartButton.TabIndex = 1;
+            this.ReloadChartButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ReloadChartButton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -898,6 +1189,7 @@ namespace GraphicInterfaceLab1
             this.MachineActsPanel.ResumeLayout(false);
             this.AxisViewPanel.ResumeLayout(false);
             this.StatusPanel.ResumeLayout(false);
+            this.TemperatureValuesPanel.ResumeLayout(false);
             this.ChartPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.temperatureChart)).EndInit();
             this.MessagesPanel.ResumeLayout(false);
@@ -957,19 +1249,41 @@ namespace GraphicInterfaceLab1
         private Label label25;
         private Label label24;
         private Label label26;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button17;
-        private Button button16;
-        private Button button15;
-        private Button button14;
+        private Button AM_CNCButton;
+        private Button AM_AxisXButton;
+        private Button AM_AxisYButton;
+        private Button AM_SpiendelButton;
+        private Button AM_AxisCRevButton;
+        private Button AM_AxisCButton;
+        private Button AM_AxisZButton;
         private Label label27;
         private Label label28;
         private Label label30;
         private Label label29;
         private Label label31;
         private DataGridView MessagesDataGrid;
+        private Label label32;
+        private Label label36;
+        private Label label35;
+        private Label label34;
+        private Label label33;
+        private Panel TemperatureValuesPanel;
+        private Label label41;
+        private Label label40;
+        private Label label39;
+        private Label label38;
+        private Label label37;
+        private Label label42;
+        private Label label51;
+        private Label label50;
+        private Label label49;
+        private Label label48;
+        private Label label47;
+        private Label label46;
+        private Label label45;
+        private Label label44;
+        private Label label43;
+        private Button ReloadChartButton;
     }
 }
 
