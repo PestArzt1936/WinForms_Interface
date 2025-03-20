@@ -14,43 +14,36 @@ namespace GraphicInterfaceLab1
 {
     public partial class Form1 : Form
     {
-        private byte ActiveMessageState;
-        private Button[] ActiveMessagesButtons = new Button[7];
+        private Button ActiveMessageState;
         private LimitedCollection<LogMessage> messages = new LimitedCollection<LogMessage>(6);
-
-        private void Initialization()
-        {
-            ActiveMessagesButtons[0] = AM_CNCButton;
-            ActiveMessagesButtons[1] = AM_AxisXButton;
-            ActiveMessagesButtons[2] = AM_AxisYButton;
-            ActiveMessagesButtons[3] = AM_AxisZButton;
-            ActiveMessagesButtons[4] = AM_AxisCButton;
-            ActiveMessagesButtons[5] = AM_AxisCRevButton;
-            ActiveMessagesButtons[6] = AM_SpiendelButton;
-            ActiveMessageState = 0;
-        }
         public Form1()
         {
             InitializeComponent();
-            Initialization();
             this.Load += Form1_load;
-            this.Load += ChartTest;
             this.Load += MessageDataForm;
-            this.Load += MessageTest;
+            MessagesDataGrid.CellFormatting += MessagesDataGrid_CellFormating;
+            ActiveMessageState = AM_CNCButton;
             TemperatureValuesPanel.Paint += TemperatureValuesTable;
+            StatusNdValuesPanel.Paint += StatusNdValuesPanelPaint;
             StatusPanel.Paint += StatusPanelPaint;
+            this.Load += ChartTest;
+            this.Load += MessageTest;
         }
         private void Form1_load(object sender,EventArgs e)
         {
             DateTime baseDate = System.DateTime.Today;
-            temperatureChart.ChartAreas[0].AxisY.Title = "T, C";
+
             temperatureChart.ChartAreas[0].AxisY.Minimum = 0;
             temperatureChart.ChartAreas[0].AxisY.Maximum = 120;
             temperatureChart.ChartAreas[0].AxisY.Interval = 20;
             temperatureChart.ChartAreas[0].AxisY.MajorGrid.LineColor= System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(233)))), ((int)(((byte)(243)))));
             temperatureChart.ChartAreas[0].AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(233)))), ((int)(((byte)(243)))));
+            
+            temperatureChart.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Calibri", 20, FontStyle.Bold, GraphicsUnit.Pixel);
+            temperatureChart.ChartAreas[0].AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            temperatureChart.ChartAreas[0].AxisY.LineWidth = 2;
+            temperatureChart.ChartAreas[0].AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
 
-            temperatureChart.ChartAreas[0].AxisX.Title = "t, cек";
             temperatureChart.ChartAreas[0].AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Hours;
             temperatureChart.ChartAreas[0].AxisX.LabelStyle.Format = "HH:mm";
             temperatureChart.ChartAreas[0].AxisX.Minimum =baseDate.AddHours(6).ToOADate();
@@ -58,16 +51,38 @@ namespace GraphicInterfaceLab1
             temperatureChart.ChartAreas[0].AxisX.Interval = 2;
             temperatureChart.ChartAreas[0].AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(233)))), ((int)(((byte)(243)))));
             temperatureChart.ChartAreas[0].AxisX.LineColor= System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(233)))), ((int)(((byte)(243)))));
+            
+            temperatureChart.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Calibri", 18, FontStyle.Bold, GraphicsUnit.Pixel);
+            temperatureChart.ChartAreas[0].AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            temperatureChart.ChartAreas[0].AxisX.LineWidth = 2;
+            temperatureChart.ChartAreas[0].AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
 
             temperatureChart.ChartAreas[0].BackColor= System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             temperatureChart.Legends.Clear();
         }
+        private void StatusNdValuesPanelPaint(object sender, PaintEventArgs e)
+        {
+            StatusNdValuesPanel = (Panel)sender;
+            using (Pen pen = new Pen(System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97))))), 4))
+            {
+                e.Graphics.DrawLine(pen, 0, 343, StatusNdValuesPanel.Width, 343);
+            }
+            using (Brush brush = new SolidBrush(System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(174)))), ((int)(((byte)(224)))))))
+            {
+                e.Graphics.FillEllipse(brush, 20, 20, 18, 18);
+            }
+            using (Brush brush = new SolidBrush(System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(118)))), ((int)(((byte)(132)))))))
+            {
+                e.Graphics.FillEllipse(brush, 89, 20, 18, 18);
+            }
+        }
         private void StatusPanelPaint(object sender, PaintEventArgs e)
         {
             StatusPanel = (Panel)sender;
-            using (Pen pen = new Pen(System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97))))), 4))
+            using (Brush brush = new SolidBrush(System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(118)))), ((int)(((byte)(132)))))))
             {
-                e.Graphics.DrawLine(pen, 0, 343, StatusPanel.Width, 343);
+                for(int i=1;i<244;i+=53)
+                e.Graphics.FillEllipse(brush, 1, i, 49, 30);
             }
         }
         private void TemperatureValuesTable(object sender, PaintEventArgs e)
@@ -112,7 +127,7 @@ namespace GraphicInterfaceLab1
                  : Properties.Resources.help_circle;
             messages.Add(new LogMessage
             {
-                Image = icon,
+                ErrorType = icon,
                 Time = DateTime.Now.ToString("HH:mm:ss"),
                 Type = Type,
                 Tunnel = Tunnel,
@@ -120,6 +135,8 @@ namespace GraphicInterfaceLab1
                 Description = Description
             });
             MessagesDataGrid.FirstDisplayedScrollingRowIndex = MessagesDataGrid.RowCount-1;
+            MessagesDataGrid.ClearSelection();
+            MessagesDataGrid.CurrentCell = null;
         }
         private void MessageTest(object sender, EventArgs e)
         {
@@ -129,6 +146,28 @@ namespace GraphicInterfaceLab1
             AddNewMessage("Info", 2, 5, "Connection succesful");
             AddNewMessage("Info", 2, 5, "Connection succesful");
             AddNewMessage("Info", 2, 5, "Connection succesful");
+            MessagesDataGrid.Invalidate();
+            //MessagesDataGrid.Refresh();
+        }
+        private void MessagesDataGrid_CellFormating(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == MessagesDataGrid.Columns["Type"].Index && e.RowIndex >=0)
+            {
+                DataGridViewCell cell = MessagesDataGrid.Rows[e.RowIndex].Cells[e.ColumnIndex-1];
+                string type = (string)e.Value;
+                if(type == "Warn")
+                {
+                    cell.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
+                }
+                else if (type == "Info")
+                {
+                    cell.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(184)))), ((int)(((byte)(214)))));
+                }
+                else
+                {
+                    cell.Style.BackColor = Color.Black;
+                }
+            }
         }
         private void MessageDataForm(object sender, EventArgs e)
         {
@@ -146,12 +185,15 @@ namespace GraphicInterfaceLab1
             MessagesDataGrid.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             MessagesDataGrid.ColumnHeadersHeight = 27;
             MessagesDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            MessagesDataGrid.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            MessagesDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
+            MessagesDataGrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
 
             DataGridViewImageColumn IconColumn = new DataGridViewImageColumn();
             IconColumn.Name = "ErrorType";
             IconColumn.HeaderText = " ";
             IconColumn.Width = 52;
-            IconColumn.DataPropertyName = "Image";
+            IconColumn.DataPropertyName = "ErrorType";
             IconColumn.DefaultCellStyle.SelectionBackColor = Color.Transparent;
             MessagesDataGrid.Columns.Add(IconColumn);
 
@@ -201,15 +243,9 @@ namespace GraphicInterfaceLab1
         }
         private void ChangeActiveMessageState(object sender)
         {
-            ActiveMessagesButtons[Convert.ToInt32(ActiveMessageState)].BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            for(int j = 0; j < ActiveMessagesButtons.Length; j++)
-            {
-                if (ActiveMessagesButtons[j] == sender) {
-                    ActiveMessageState = Convert.ToByte(j);
-                    ActiveMessagesButtons[j].BackColor= System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(160)))), ((int)(((byte)(245)))));
-                }
-            }
-            
+            ActiveMessageState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
+            ActiveMessageState = sender as Button;
+            ActiveMessageState.BackColor= System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(160)))), ((int)(((byte)(245)))));
         }
         private void AM_CNCButton_Click(object sender, EventArgs e)
         {

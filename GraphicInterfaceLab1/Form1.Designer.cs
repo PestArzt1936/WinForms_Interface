@@ -34,8 +34,8 @@ namespace GraphicInterfaceLab1
         {
             System.Windows.Forms.Button ProgrammButton;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.AnalyzeButton = new System.Windows.Forms.Button();
             this.MainButton = new System.Windows.Forms.Button();
@@ -56,7 +56,7 @@ namespace GraphicInterfaceLab1
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.StatusPanel = new System.Windows.Forms.Panel();
+            this.StatusNdValuesPanel = new System.Windows.Forms.Panel();
             this.TemperatureValuesPanel = new System.Windows.Forms.Panel();
             this.label51 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
@@ -101,6 +101,7 @@ namespace GraphicInterfaceLab1
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.ChartPanel = new System.Windows.Forms.Panel();
+            this.ReloadChartButton = new System.Windows.Forms.Button();
             this.temperatureChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.MessagesPanel = new System.Windows.Forms.Panel();
             this.MessagesDataGrid = new System.Windows.Forms.DataGridView();
@@ -119,13 +120,17 @@ namespace GraphicInterfaceLab1
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.ReloadChartButton = new System.Windows.Forms.Button();
+            this.StatusPanel = new System.Windows.Forms.Panel();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
             ProgrammButton = new System.Windows.Forms.Button();
             this.MainPanel.SuspendLayout();
             this.InfoPanel.SuspendLayout();
             this.MachineActsPanel.SuspendLayout();
             this.AxisViewPanel.SuspendLayout();
-            this.StatusPanel.SuspendLayout();
+            this.StatusNdValuesPanel.SuspendLayout();
             this.TemperatureValuesPanel.SuspendLayout();
             this.ChartPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureChart)).BeginInit();
@@ -388,42 +393,45 @@ namespace GraphicInterfaceLab1
             this.button4.Text = "X";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // StatusPanel
+            // StatusNdValuesPanel
             // 
-            this.StatusPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            this.StatusPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.StatusPanel.Controls.Add(this.TemperatureValuesPanel);
-            this.StatusPanel.Controls.Add(this.label36);
-            this.StatusPanel.Controls.Add(this.label35);
-            this.StatusPanel.Controls.Add(this.label34);
-            this.StatusPanel.Controls.Add(this.label33);
-            this.StatusPanel.Controls.Add(this.label32);
-            this.StatusPanel.Controls.Add(this.label31);
-            this.StatusPanel.Controls.Add(this.label30);
-            this.StatusPanel.Controls.Add(this.label29);
-            this.StatusPanel.Controls.Add(this.label28);
-            this.StatusPanel.Controls.Add(this.label27);
-            this.StatusPanel.Controls.Add(this.label26);
-            this.StatusPanel.Controls.Add(this.label25);
-            this.StatusPanel.Controls.Add(this.label24);
-            this.StatusPanel.Controls.Add(this.label23);
-            this.StatusPanel.Controls.Add(this.label22);
-            this.StatusPanel.Controls.Add(this.label21);
-            this.StatusPanel.Controls.Add(this.label20);
-            this.StatusPanel.Controls.Add(this.label19);
-            this.StatusPanel.Controls.Add(this.label18);
-            this.StatusPanel.Controls.Add(this.label17);
-            this.StatusPanel.Controls.Add(this.label16);
-            this.StatusPanel.Controls.Add(this.label15);
-            this.StatusPanel.Controls.Add(this.label14);
-            this.StatusPanel.Controls.Add(this.label13);
-            this.StatusPanel.Controls.Add(this.label12);
-            this.StatusPanel.Controls.Add(this.label11);
-            this.StatusPanel.Controls.Add(this.label10);
-            this.StatusPanel.Location = new System.Drawing.Point(441, 64);
-            this.StatusPanel.Name = "StatusPanel";
-            this.StatusPanel.Size = new System.Drawing.Size(615, 675);
-            this.StatusPanel.TabIndex = 5;
+            this.StatusNdValuesPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
+            this.StatusNdValuesPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.StatusNdValuesPanel.Controls.Add(this.label53);
+            this.StatusNdValuesPanel.Controls.Add(this.label52);
+            this.StatusNdValuesPanel.Controls.Add(this.StatusPanel);
+            this.StatusNdValuesPanel.Controls.Add(this.TemperatureValuesPanel);
+            this.StatusNdValuesPanel.Controls.Add(this.label36);
+            this.StatusNdValuesPanel.Controls.Add(this.label35);
+            this.StatusNdValuesPanel.Controls.Add(this.label34);
+            this.StatusNdValuesPanel.Controls.Add(this.label33);
+            this.StatusNdValuesPanel.Controls.Add(this.label32);
+            this.StatusNdValuesPanel.Controls.Add(this.label31);
+            this.StatusNdValuesPanel.Controls.Add(this.label30);
+            this.StatusNdValuesPanel.Controls.Add(this.label29);
+            this.StatusNdValuesPanel.Controls.Add(this.label28);
+            this.StatusNdValuesPanel.Controls.Add(this.label27);
+            this.StatusNdValuesPanel.Controls.Add(this.label26);
+            this.StatusNdValuesPanel.Controls.Add(this.label25);
+            this.StatusNdValuesPanel.Controls.Add(this.label24);
+            this.StatusNdValuesPanel.Controls.Add(this.label23);
+            this.StatusNdValuesPanel.Controls.Add(this.label22);
+            this.StatusNdValuesPanel.Controls.Add(this.label21);
+            this.StatusNdValuesPanel.Controls.Add(this.label20);
+            this.StatusNdValuesPanel.Controls.Add(this.label19);
+            this.StatusNdValuesPanel.Controls.Add(this.label18);
+            this.StatusNdValuesPanel.Controls.Add(this.label17);
+            this.StatusNdValuesPanel.Controls.Add(this.label16);
+            this.StatusNdValuesPanel.Controls.Add(this.label15);
+            this.StatusNdValuesPanel.Controls.Add(this.label14);
+            this.StatusNdValuesPanel.Controls.Add(this.label13);
+            this.StatusNdValuesPanel.Controls.Add(this.label12);
+            this.StatusNdValuesPanel.Controls.Add(this.label11);
+            this.StatusNdValuesPanel.Controls.Add(this.label10);
+            this.StatusNdValuesPanel.Location = new System.Drawing.Point(441, 64);
+            this.StatusNdValuesPanel.Name = "StatusNdValuesPanel";
+            this.StatusNdValuesPanel.Size = new System.Drawing.Size(615, 675);
+            this.StatusNdValuesPanel.TabIndex = 5;
             // 
             // TemperatureValuesPanel
             // 
@@ -920,6 +928,8 @@ namespace GraphicInterfaceLab1
             // 
             this.ChartPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             this.ChartPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ChartPanel.Controls.Add(this.label55);
+            this.ChartPanel.Controls.Add(this.label54);
             this.ChartPanel.Controls.Add(this.ReloadChartButton);
             this.ChartPanel.Controls.Add(this.temperatureChart);
             this.ChartPanel.Location = new System.Drawing.Point(1125, 64);
@@ -927,23 +937,34 @@ namespace GraphicInterfaceLab1
             this.ChartPanel.Size = new System.Drawing.Size(709, 675);
             this.ChartPanel.TabIndex = 6;
             // 
+            // ReloadChartButton
+            // 
+            this.ReloadChartButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReloadChartButton.BackgroundImage")));
+            this.ReloadChartButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ReloadChartButton.Location = new System.Drawing.Point(604, 61);
+            this.ReloadChartButton.Name = "ReloadChartButton";
+            this.ReloadChartButton.Size = new System.Drawing.Size(30, 30);
+            this.ReloadChartButton.TabIndex = 1;
+            this.ReloadChartButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ReloadChartButton.UseVisualStyleBackColor = true;
+            // 
             // temperatureChart
             // 
             this.temperatureChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             this.temperatureChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             this.temperatureChart.BorderSkin.PageColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            chartArea9.Name = "ChartArea1";
-            this.temperatureChart.ChartAreas.Add(chartArea9);
-            this.temperatureChart.Location = new System.Drawing.Point(0, 0);
+            chartArea2.Name = "ChartArea1";
+            this.temperatureChart.ChartAreas.Add(chartArea2);
+            this.temperatureChart.Location = new System.Drawing.Point(41, 69);
             this.temperatureChart.Name = "temperatureChart";
-            series9.BorderWidth = 2;
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series9.IsXValueIndexed = true;
-            series9.Legend = "Legend1";
-            series9.Name = "Series1";
-            this.temperatureChart.Series.Add(series9);
-            this.temperatureChart.Size = new System.Drawing.Size(710, 675);
+            series2.BorderWidth = 2;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.IsXValueIndexed = true;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.temperatureChart.Series.Add(series2);
+            this.temperatureChart.Size = new System.Drawing.Size(610, 551);
             this.temperatureChart.TabIndex = 0;
             this.temperatureChart.Text = "Температура";
             // 
@@ -1146,16 +1167,54 @@ namespace GraphicInterfaceLab1
             this.label9.Text = "Активные сообщения";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // ReloadChartButton
+            // StatusPanel
             // 
-            this.ReloadChartButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReloadChartButton.BackgroundImage")));
-            this.ReloadChartButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ReloadChartButton.Location = new System.Drawing.Point(679, 0);
-            this.ReloadChartButton.Name = "ReloadChartButton";
-            this.ReloadChartButton.Size = new System.Drawing.Size(30, 30);
-            this.ReloadChartButton.TabIndex = 1;
-            this.ReloadChartButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.ReloadChartButton.UseVisualStyleBackColor = true;
+            this.StatusPanel.Location = new System.Drawing.Point(240, 58);
+            this.StatusPanel.Name = "StatusPanel";
+            this.StatusPanel.Size = new System.Drawing.Size(52, 244);
+            this.StatusPanel.TabIndex = 28;
+            // 
+            // label52
+            // 
+            this.label52.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label52.ForeColor = System.Drawing.Color.White;
+            this.label52.Location = new System.Drawing.Point(38, 22);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(48, 16);
+            this.label52.TabIndex = 29;
+            this.label52.Text = "Готов";
+            this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label53
+            // 
+            this.label53.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label53.ForeColor = System.Drawing.Color.White;
+            this.label53.Location = new System.Drawing.Point(107, 22);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(67, 16);
+            this.label53.TabIndex = 30;
+            this.label53.Text = "Не готов";
+            this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Calibri", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label54.Location = new System.Drawing.Point(25, 19);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(66, 39);
+            this.label54.TabIndex = 2;
+            this.label54.Text = "T,°C";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Calibri", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.label55.Location = new System.Drawing.Point(632, 575);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(59, 39);
+            this.label55.TabIndex = 3;
+            this.label55.Text = "t, ч";
             // 
             // Form1
             // 
@@ -1174,7 +1233,7 @@ namespace GraphicInterfaceLab1
             this.Controls.Add(this.label1);
             this.Controls.Add(this.MessagesPanel);
             this.Controls.Add(this.ChartPanel);
-            this.Controls.Add(this.StatusPanel);
+            this.Controls.Add(this.StatusNdValuesPanel);
             this.Controls.Add(this.InfoPanel);
             this.Controls.Add(this.BoxOfHeads);
             this.Controls.Add(this.BoxOfTypes);
@@ -1188,9 +1247,10 @@ namespace GraphicInterfaceLab1
             this.InfoPanel.ResumeLayout(false);
             this.MachineActsPanel.ResumeLayout(false);
             this.AxisViewPanel.ResumeLayout(false);
-            this.StatusPanel.ResumeLayout(false);
+            this.StatusNdValuesPanel.ResumeLayout(false);
             this.TemperatureValuesPanel.ResumeLayout(false);
             this.ChartPanel.ResumeLayout(false);
+            this.ChartPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureChart)).EndInit();
             this.MessagesPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MessagesDataGrid)).EndInit();
@@ -1207,7 +1267,7 @@ namespace GraphicInterfaceLab1
         private ComboBox BoxOfTypes;
         private ComboBox BoxOfHeads;
         private Panel InfoPanel;
-        private Panel StatusPanel;
+        private Panel StatusNdValuesPanel;
         private Panel ChartPanel;
         private Panel MessagesPanel;
         private Panel AxisViewPanel;
@@ -1284,6 +1344,11 @@ namespace GraphicInterfaceLab1
         private Label label44;
         private Label label43;
         private Button ReloadChartButton;
+        private Panel StatusPanel;
+        private Label label53;
+        private Label label52;
+        private Label label54;
+        private Label label55;
     }
 }
 

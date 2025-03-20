@@ -13,7 +13,7 @@ namespace GraphicInterfaceLab1
 {
     public class LogMessage
     {
-        public Image Image {  get; set; }
+        public Image ErrorType {  get; set; }
         public string Time { get; set; }
         public string Type { get; set; }
         public int Tunnel { get; set; }
