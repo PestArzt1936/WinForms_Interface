@@ -122,9 +122,19 @@ namespace GraphicInterfaceLab1
         }
         public void AddNewMessage(string Type,int Tunnel, int Code, string Description)
         {
-            Image icon = (Type == "Warn")
-                 ? Properties.Resources.attention_circle
-                 : Properties.Resources.help_circle;
+            Image icon;
+            if(Type == "Warn")
+            {
+                icon = Properties.Resources.attention_circle;
+            }
+            else if(Type == "Info")
+            {
+                icon = Properties.Resources.message_checked;
+            }
+            else
+            {
+                icon = Properties.Resources.help_circle;
+            }
             messages.Add(new LogMessage
             {
                 ErrorType = icon,
@@ -141,13 +151,12 @@ namespace GraphicInterfaceLab1
         private void MessageTest(object sender, EventArgs e)
         {
             AddNewMessage("Warn", 1, 404, "Something went wrong");
-            AddNewMessage("Info", 2, 5, "Connection succesful");
-            AddNewMessage("Info", 2, 5, "Connection succesful");
-            AddNewMessage("Info", 2, 5, "Connection succesful");
-            AddNewMessage("Info", 2, 5, "Connection succesful");
+            AddNewMessage("Warn", 3, 502, "DriveController не инициализирован");
+            AddNewMessage("Set", 0, 2300, "Постоянный циклы загружены успешно");
+            AddNewMessage("Warn", 0, 333, "ArtFireLib: OS ядра - семейства Windows, но не XP. Возможны проблемы при взаимодей...");
+            AddNewMessage("Info", 0, 1822, "Файловая система станка в норме.");
             AddNewMessage("Info", 2, 5, "Connection succesful");
             MessagesDataGrid.Invalidate();
-            //MessagesDataGrid.Refresh();
         }
         private void MessagesDataGrid_CellFormating(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -161,11 +170,11 @@ namespace GraphicInterfaceLab1
                 }
                 else if (type == "Info")
                 {
-                    cell.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(184)))), ((int)(((byte)(214)))));
+                    cell.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(220)))), ((int)(((byte)(146)))));
                 }
                 else
                 {
-                    cell.Style.BackColor = Color.Black;
+                    cell.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
                 }
             }
         }

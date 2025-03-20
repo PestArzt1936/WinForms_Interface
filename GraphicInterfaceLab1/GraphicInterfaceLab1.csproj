@@ -88,5 +88,8 @@
   <ItemGroup>
     <None Include="Resources\attention-circle.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\message-checked.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
