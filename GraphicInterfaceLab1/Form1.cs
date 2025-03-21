@@ -7,38 +7,54 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Google.Protobuf.WellKnownTypes;
 using GraphicInterfaceLab1;
 using GraphicInterfaceLab1.Properties;
+using MySql.Data.MySqlClient;
 
 namespace GraphicInterfaceLab1
 {
     public partial class Form1 : Form
     {
+        private SQLRuler SQLRuler;
+        private MySqlDataAdapter adapter;
+        private DataTable dt;
         private Button ActiveMessageState;
         private LimitedCollection<LogMessage> messages = new LimitedCollection<LogMessage>(6);
         public Form1()
         {
+            SQLRuler = new SQLRuler();
+            adapter = new MySqlDataAdapter();
+            dt = new DataTable();
             InitializeComponent();
-            this.Load += Form1_load;
+            //Раздел активных сообщений
             this.Load += MessageDataForm;
             MessagesDataGrid.CellFormatting += MessagesDataGrid_CellFormating;
             ActiveMessageState = AM_CNCButton;
+            //Инициализация левой части
+            this.Load+=ComboBoxForm;
+            //Инициализация формы
+            this.Load += Form1_load;
+            //Раздел графика
+            this.Load += TemperatureChartForm;
             TemperatureValuesPanel.Paint += TemperatureValuesTable;
+            //Раздел статусов и значений
             StatusNdValuesPanel.Paint += StatusNdValuesPanelPaint;
             StatusPanel.Paint += StatusPanelPaint;
+            //Тесты
             this.Load += ChartTest;
-            this.Load += MessageTest;
+            //this.Load += MessageTest;
         }
-        private void Form1_load(object sender,EventArgs e)
+        private void TemperatureChartForm(object sender, EventArgs e)
         {
             DateTime baseDate = System.DateTime.Today;
 
             temperatureChart.ChartAreas[0].AxisY.Minimum = 0;
             temperatureChart.ChartAreas[0].AxisY.Maximum = 120;
             temperatureChart.ChartAreas[0].AxisY.Interval = 20;
-            temperatureChart.ChartAreas[0].AxisY.MajorGrid.LineColor= System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(233)))), ((int)(((byte)(243)))));
+            temperatureChart.ChartAreas[0].AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(233)))), ((int)(((byte)(243)))));
             temperatureChart.ChartAreas[0].AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(233)))), ((int)(((byte)(243)))));
-            
+
             temperatureChart.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Calibri", 20, FontStyle.Bold, GraphicsUnit.Pixel);
             temperatureChart.ChartAreas[0].AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             temperatureChart.ChartAreas[0].AxisY.LineWidth = 2;
@@ -46,19 +62,47 @@ namespace GraphicInterfaceLab1
 
             temperatureChart.ChartAreas[0].AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Hours;
             temperatureChart.ChartAreas[0].AxisX.LabelStyle.Format = "HH:mm";
-            temperatureChart.ChartAreas[0].AxisX.Minimum =baseDate.AddHours(6).ToOADate();
-           temperatureChart.ChartAreas[0].AxisX.Maximum = baseDate.AddHours(18).ToOADate();
+            temperatureChart.ChartAreas[0].AxisX.Minimum = baseDate.AddHours(6).ToOADate();
+            temperatureChart.ChartAreas[0].AxisX.Maximum = baseDate.AddHours(18).ToOADate();
             temperatureChart.ChartAreas[0].AxisX.Interval = 2;
             temperatureChart.ChartAreas[0].AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(233)))), ((int)(((byte)(243)))));
-            temperatureChart.ChartAreas[0].AxisX.LineColor= System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(233)))), ((int)(((byte)(243)))));
-            
+            temperatureChart.ChartAreas[0].AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(233)))), ((int)(((byte)(243)))));
+
             temperatureChart.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Calibri", 18, FontStyle.Bold, GraphicsUnit.Pixel);
             temperatureChart.ChartAreas[0].AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             temperatureChart.ChartAreas[0].AxisX.LineWidth = 2;
             temperatureChart.ChartAreas[0].AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
 
-            temperatureChart.ChartAreas[0].BackColor= System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
+            temperatureChart.ChartAreas[0].BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             temperatureChart.Legends.Clear();
+        }
+        private void Form1_load(object sender,EventArgs e)
+        {
+            try
+            {
+                SQLRuler.OpenConnection();
+                AddNewMessage("Info", 0, 10, "Подключение к базе было установлено.");
+                MySqlCommand command = new MySqlCommand("SELECT * FROM dashboard.machine_tool_type;", SQLRuler.GetConnection());
+                adapter.SelectCommand = command;
+                adapter.Fill(dt);
+                BoxOfTypes.Items.Clear();
+                foreach(DataRow row in dt.Rows)
+                {
+                    BoxOfTypes.Items.Add(row["type"].ToString());
+                }
+                BoxOfTypes.Refresh();
+                if (BoxOfTypes.Items.Count > 0)
+                    BoxOfTypes.SelectedIndex = 0;
+            }
+            catch (Exception exception)
+            {
+                AddNewMessage("Warn", 0, 666, (string)exception.Message);
+            }
+            finally
+            {
+                if(SQLRuler.GetConnection().State  == ConnectionState.Open)
+                SQLRuler.CloseConnection();
+            }
         }
         private void StatusNdValuesPanelPaint(object sender, PaintEventArgs e)
         {
@@ -247,14 +291,81 @@ namespace GraphicInterfaceLab1
             MessagesDataGrid.Columns.Add(DescColumn);
 
             MessagesDataGrid.RowTemplate.Height = 28;
-            MessagesDataGrid.DataSource = messages;
 
+            MessagesDataGrid.DataSource = messages;
         }
         private void ChangeActiveMessageState(object sender)
         {
             ActiveMessageState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             ActiveMessageState = sender as Button;
             ActiveMessageState.BackColor= System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(160)))), ((int)(((byte)(245)))));
+        }
+        private void ComboBoxForm(object sender, EventArgs e)
+        {
+            //BoxOfTypes
+            BoxOfTypes.AutoCompleteSource = AutoCompleteSource.ListItems;
+            BoxOfTypes.DrawItem += BoxOfTypes_DrawItem;
+            BoxOfTypes.Paint += BoxOfTypes_Paint;
+            BoxOfTypes.Height = 55;
+            //BoxOfNames
+            BoxOfNames.AutoCompleteSource = AutoCompleteSource.ListItems;
+            BoxOfNames.DrawItem += BoxOfTypes_DrawItem;
+            BoxOfNames.Paint += BoxOfTypes_Paint;
+            //BoxOfHeads
+            BoxOfHeads.AutoCompleteSource = AutoCompleteSource.ListItems;
+            BoxOfHeads.DrawItem += BoxOfTypes_DrawItem;
+            BoxOfHeads.Paint += BoxOfTypes_Paint;
+        }
+        private void BoxOfTypes_Paint(object sender, PaintEventArgs e)
+        {
+            ComboBox box = (ComboBox)sender;
+            if (box==null)
+                return;
+
+            // Текст для отображения (выбранный элемент или введённый текст)
+            string text = box.SelectedItem?.ToString() ?? BoxOfTypes.Text;
+            if(string.IsNullOrEmpty(text)) return;
+            // Настройки выравнивания
+            StringFormat boxformat = new StringFormat
+            {
+                Alignment = StringAlignment.Near,
+                LineAlignment = StringAlignment.Center
+            };
+
+            // Рисуем текст
+            using (Brush brush = new SolidBrush(BoxOfTypes.ForeColor))
+            {
+                e.Graphics.DrawString(
+                    text,
+                    box.Font,
+                    brush,
+                    box.ClientRectangle,
+                    boxformat
+                );
+            }
+        }
+        private void BoxOfTypes_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            ComboBox box = (ComboBox)sender;
+            if(box==null || e.Index< 0) return;
+            e.DrawBackground();
+
+                StringFormat itemformat = new StringFormat
+                {
+                    Alignment = StringAlignment.Near,
+                    LineAlignment = StringAlignment.Center
+                };
+                using (Brush brush = new SolidBrush(e.ForeColor))
+                {
+                    e.Graphics.DrawString(
+                        box.Items[e.Index].ToString(),
+                        e.Font,
+                        brush,
+                        e.Bounds,
+                        itemformat
+                    );
+                }
+            e.DrawFocusRectangle();
         }
         private void AM_CNCButton_Click(object sender, EventArgs e)
         {
@@ -289,6 +400,62 @@ namespace GraphicInterfaceLab1
         private void AM_SpiendelButton_Click(object sender, EventArgs e)
         {
             ChangeActiveMessageState(sender);
+        }
+
+        private void BoxOfTypes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if(SQLRuler.GetConnection().State == ConnectionState.Closed)
+                SQLRuler.OpenConnection();
+                MySqlCommand command;
+                bool check = false;
+                foreach (DataRow row in dt.Rows)
+                {
+                    if (BoxOfTypes.SelectedItem == row["type"])
+                    {
+                        command = new MySqlCommand("SELECT * FROM dashboard.machine_tool_name where id_mt="+row["id_mt"].ToString()+";", SQLRuler.GetConnection());
+                        adapter.SelectCommand = command;
+                        adapter.Fill(dt);
+                        BoxOfNames.Items.Clear();
+                        check = true;
+                        break;
+                    }
+                }
+                if (!check)
+                {
+                    if (SQLRuler.GetConnection().State == ConnectionState.Open)
+                        SQLRuler.CloseConnection();
+                    return;
+                }
+                BoxOfNames.Items.Clear();
+                foreach (DataRow rows in dt.Rows)
+                {
+                    BoxOfNames.Items.Add(rows["machine_tool_name"].ToString());
+                }
+                BoxOfNames.Refresh();
+                if (BoxOfNames.Items.Count > 0)
+                    BoxOfNames.SelectedIndex = 0;
+            }
+            catch ( Exception ex )
+            {
+                AddNewMessage("Warn", 0, 666, (string)ex.Message);
+            }
+            finally
+            {
+                if (SQLRuler.GetConnection().State == ConnectionState.Open)
+                    SQLRuler.CloseConnection();
+            }
+        }
+
+        private void BoxOfNames_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BoxOfHeads_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
