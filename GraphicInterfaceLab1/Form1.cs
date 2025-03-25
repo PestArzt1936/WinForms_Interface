@@ -123,11 +123,56 @@ namespace GraphicInterfaceLab1
         private void StatusPanelPaint(object sender, PaintEventArgs e)
         {
             StatusPanel = (Panel)sender;
-            using (Brush brush = new SolidBrush(System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(118)))), ((int)(((byte)(132)))))))
+            Color Active = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(174)))), ((int)(((byte)(224)))));
+            Color Disarmed = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(118)))), ((int)(((byte)(132)))));
+            Color Choose = new Color();
+            Dictionary<string,int> map = new Dictionary<string, int>();
+            map.Add("X", 1);
+            map.Add("Y", 2);
+            map.Add("Z", 3);
+            map.Add("C", 4);
+            map.Add("C'", 5);
+            if (BoxOfHeads.SelectedItem == null)
             {
-                for(int i=1;i<244;i+=53)
-                e.Graphics.FillEllipse(brush, 1, i, 49, 30);
+                Choose = Disarmed;
+                for (int i = 1; i < 6; i++)
+                    using (Brush brush = new SolidBrush(Choose))
+                    {
+
+                        e.Graphics.FillEllipse(brush, 1, 1 + (53 * (i - 1)), 49, 30);
+                    }
             }
+            else
+            {
+                if (SQLRuler.GetConnection().State == ConnectionState.Closed)
+                    SQLRuler.OpenConnection();
+                MySqlCommand command;
+                command = new MySqlCommand("select * from dashboard.drive where id_mth=(select id_mth from dashboard.machine_tool_head where id_mtn=(select id_mtn from dashboard.machine_tool_name where id_mt=(SELECT id_mt FROM dashboard.machine_tool_type where type=\""+BoxOfTypes.SelectedItem.ToString()+"\") and machine_tool_name=\""+BoxOfNames.SelectedItem.ToString()+"\") and head_type=\""+BoxOfHeads.SelectedItem.ToString()+"\");", SQLRuler.GetConnection());
+                adapter.SelectCommand = command;
+                dt.Clear();
+                adapter.Fill(dt);
+                if (SQLRuler.GetConnection().State == ConnectionState.Open)
+                    SQLRuler.CloseConnection();
+                for (int j = 1; j < 6; j++)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        if (j == map[row["drive_name"].ToString()] && Convert.ToInt32(row["drive_status"].ToString()) == 1)
+                        {
+                            Choose = Active;
+                            break;
+                        }
+                        else
+                            Choose = Disarmed;
+                    }
+                    using (Brush brush = new SolidBrush(Choose))
+                    {
+
+                        e.Graphics.FillEllipse(brush, 1, 1 + (53 * (j - 1)), 49, 30);
+                    }
+                }
+            }
+            
         }
         private void TemperatureValuesTable(object sender, PaintEventArgs e)
         {
@@ -409,25 +454,10 @@ namespace GraphicInterfaceLab1
                 if(SQLRuler.GetConnection().State == ConnectionState.Closed)
                 SQLRuler.OpenConnection();
                 MySqlCommand command;
-                bool check = false;
-                foreach (DataRow row in dt.Rows)
-                {
-                    if (BoxOfTypes.SelectedItem == row["type"])
-                    {
-                        command = new MySqlCommand("SELECT * FROM dashboard.machine_tool_name where id_mt="+row["id_mt"].ToString()+";", SQLRuler.GetConnection());
-                        adapter.SelectCommand = command;
-                        adapter.Fill(dt);
-                        BoxOfNames.Items.Clear();
-                        check = true;
-                        break;
-                    }
-                }
-                if (!check)
-                {
-                    if (SQLRuler.GetConnection().State == ConnectionState.Open)
-                        SQLRuler.CloseConnection();
-                    return;
-                }
+                command = new MySqlCommand("select * from dashboard.machine_tool_name where id_mt=(SELECT id_mt FROM dashboard.machine_tool_type where type=\"" + BoxOfTypes.SelectedItem.ToString()+"\");", SQLRuler.GetConnection());
+                adapter.SelectCommand = command;
+                dt.Clear();
+                adapter.Fill(dt);
                 BoxOfNames.Items.Clear();
                 foreach (DataRow rows in dt.Rows)
                 {
@@ -436,6 +466,8 @@ namespace GraphicInterfaceLab1
                 BoxOfNames.Refresh();
                 if (BoxOfNames.Items.Count > 0)
                     BoxOfNames.SelectedIndex = 0;
+                else
+                    BoxOfHeads.Items.Clear();
             }
             catch ( Exception ex )
             {
@@ -450,12 +482,38 @@ namespace GraphicInterfaceLab1
 
         private void BoxOfNames_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (SQLRuler.GetConnection().State == ConnectionState.Closed)
+                    SQLRuler.OpenConnection();
+                MySqlCommand command;
+                command = new MySqlCommand("select * from dashboard.machine_tool_head where id_mtn=(select id_mtn from dashboard.machine_tool_name where machine_tool_name=\"" + BoxOfNames.SelectedItem.ToString()+"\");", SQLRuler.GetConnection());
+                adapter.SelectCommand = command;
+                dt.Clear();
+                adapter.Fill(dt);
+                BoxOfHeads.Items.Clear();
+                foreach (DataRow rows in dt.Rows)
+                {
+                    BoxOfHeads.Items.Add(rows["head_type"].ToString());
+                }
+                BoxOfHeads.Refresh();
+                if (BoxOfHeads.Items.Count > 0)
+                    BoxOfHeads.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                AddNewMessage("Warn", 0, 666, (string)ex.Message);
+            }
+            finally
+            {
+                if (SQLRuler.GetConnection().State == ConnectionState.Open)
+                    SQLRuler.CloseConnection();
+            }
         }
 
         private void BoxOfHeads_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            StatusPanel.Invalidate();
         }
     }
 }
