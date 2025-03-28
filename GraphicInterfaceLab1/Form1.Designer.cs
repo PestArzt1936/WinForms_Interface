@@ -34,8 +34,8 @@ namespace GraphicInterfaceLab1
         {
             System.Windows.Forms.Button ProgrammButton;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.AnalyzeButton = new System.Windows.Forms.Button();
             this.MainButton = new System.Windows.Forms.Button();
@@ -81,11 +81,11 @@ namespace GraphicInterfaceLab1
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
+            this.AxisCInvertPosValue = new System.Windows.Forms.Label();
+            this.AxisCPosValue = new System.Windows.Forms.Label();
+            this.AxisZPosValue = new System.Windows.Forms.Label();
+            this.AxisYPosValue = new System.Windows.Forms.Label();
+            this.AxisXPosValue = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -414,11 +414,11 @@ namespace GraphicInterfaceLab1
             this.StatusNdValuesPanel.Controls.Add(this.label34);
             this.StatusNdValuesPanel.Controls.Add(this.label33);
             this.StatusNdValuesPanel.Controls.Add(this.label32);
-            this.StatusNdValuesPanel.Controls.Add(this.label31);
-            this.StatusNdValuesPanel.Controls.Add(this.label30);
-            this.StatusNdValuesPanel.Controls.Add(this.label29);
-            this.StatusNdValuesPanel.Controls.Add(this.label28);
-            this.StatusNdValuesPanel.Controls.Add(this.label27);
+            this.StatusNdValuesPanel.Controls.Add(this.AxisCInvertPosValue);
+            this.StatusNdValuesPanel.Controls.Add(this.AxisCPosValue);
+            this.StatusNdValuesPanel.Controls.Add(this.AxisZPosValue);
+            this.StatusNdValuesPanel.Controls.Add(this.AxisYPosValue);
+            this.StatusNdValuesPanel.Controls.Add(this.AxisXPosValue);
             this.StatusNdValuesPanel.Controls.Add(this.label26);
             this.StatusNdValuesPanel.Controls.Add(this.label25);
             this.StatusNdValuesPanel.Controls.Add(this.label24);
@@ -712,60 +712,60 @@ namespace GraphicInterfaceLab1
             this.label32.Text = "мм";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label31
+            // AxisCInvertPosValue
             // 
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Location = new System.Drawing.Point(355, 267);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(139, 30);
-            this.label31.TabIndex = 21;
-            this.label31.Text = "0° 0’ 0’’";
-            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisCInvertPosValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisCInvertPosValue.ForeColor = System.Drawing.Color.White;
+            this.AxisCInvertPosValue.Location = new System.Drawing.Point(319, 267);
+            this.AxisCInvertPosValue.Name = "AxisCInvertPosValue";
+            this.AxisCInvertPosValue.Size = new System.Drawing.Size(175, 30);
+            this.AxisCInvertPosValue.TabIndex = 21;
+            this.AxisCInvertPosValue.Text = "0° 0’ 0’’";
+            this.AxisCInvertPosValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label30
+            // AxisCPosValue
             // 
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label30.ForeColor = System.Drawing.Color.White;
-            this.label30.Location = new System.Drawing.Point(355, 214);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(139, 30);
-            this.label30.TabIndex = 20;
-            this.label30.Text = "0° 0’ 0’’";
-            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisCPosValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisCPosValue.ForeColor = System.Drawing.Color.White;
+            this.AxisCPosValue.Location = new System.Drawing.Point(324, 214);
+            this.AxisCPosValue.Name = "AxisCPosValue";
+            this.AxisCPosValue.Size = new System.Drawing.Size(170, 30);
+            this.AxisCPosValue.TabIndex = 20;
+            this.AxisCPosValue.Text = "0° 0’ 0’’";
+            this.AxisCPosValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label29
+            // AxisZPosValue
             // 
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label29.ForeColor = System.Drawing.Color.White;
-            this.label29.Location = new System.Drawing.Point(355, 161);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(124, 30);
-            this.label29.TabIndex = 19;
-            this.label29.Text = "0.0";
-            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisZPosValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisZPosValue.ForeColor = System.Drawing.Color.White;
+            this.AxisZPosValue.Location = new System.Drawing.Point(324, 161);
+            this.AxisZPosValue.Name = "AxisZPosValue";
+            this.AxisZPosValue.Size = new System.Drawing.Size(155, 30);
+            this.AxisZPosValue.TabIndex = 19;
+            this.AxisZPosValue.Text = "0.0";
+            this.AxisZPosValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label28
+            // AxisYPosValue
             // 
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Location = new System.Drawing.Point(355, 108);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(124, 30);
-            this.label28.TabIndex = 18;
-            this.label28.Text = "0.0";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisYPosValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisYPosValue.ForeColor = System.Drawing.Color.White;
+            this.AxisYPosValue.Location = new System.Drawing.Point(324, 108);
+            this.AxisYPosValue.Name = "AxisYPosValue";
+            this.AxisYPosValue.Size = new System.Drawing.Size(155, 30);
+            this.AxisYPosValue.TabIndex = 18;
+            this.AxisYPosValue.Text = "0.0";
+            this.AxisYPosValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label27
+            // AxisXPosValue
             // 
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label27.ForeColor = System.Drawing.Color.White;
-            this.label27.Location = new System.Drawing.Point(355, 59);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(124, 30);
-            this.label27.TabIndex = 17;
-            this.label27.Text = "0.0";
-            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisXPosValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisXPosValue.ForeColor = System.Drawing.Color.White;
+            this.AxisXPosValue.Location = new System.Drawing.Point(324, 59);
+            this.AxisXPosValue.Name = "AxisXPosValue";
+            this.AxisXPosValue.Size = new System.Drawing.Size(155, 30);
+            this.AxisXPosValue.TabIndex = 17;
+            this.AxisXPosValue.Text = "0.0";
+            this.AxisXPosValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label26
             // 
@@ -1010,17 +1010,17 @@ namespace GraphicInterfaceLab1
             this.temperatureChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             this.temperatureChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             this.temperatureChart.BorderSkin.PageColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            chartArea12.Name = "ChartArea1";
-            this.temperatureChart.ChartAreas.Add(chartArea12);
+            chartArea3.Name = "ChartArea1";
+            this.temperatureChart.ChartAreas.Add(chartArea3);
             this.temperatureChart.Location = new System.Drawing.Point(41, 69);
             this.temperatureChart.Name = "temperatureChart";
-            series12.BorderWidth = 2;
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series12.IsXValueIndexed = true;
-            series12.Legend = "Legend1";
-            series12.Name = "Series1";
-            this.temperatureChart.Series.Add(series12);
+            series3.BorderWidth = 2;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.IsXValueIndexed = true;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.temperatureChart.Series.Add(series3);
             this.temperatureChart.Size = new System.Drawing.Size(610, 551);
             this.temperatureChart.TabIndex = 0;
             this.temperatureChart.Text = "Температура";
@@ -1324,11 +1324,11 @@ namespace GraphicInterfaceLab1
         private Button AM_AxisCRevButton;
         private Button AM_AxisCButton;
         private Button AM_AxisZButton;
-        private Label label27;
-        private Label label28;
-        private Label label30;
-        private Label label29;
-        private Label label31;
+        private Label AxisXPosValue;
+        private Label AxisYPosValue;
+        private Label AxisCPosValue;
+        private Label AxisZPosValue;
+        private Label AxisCInvertPosValue;
         private DataGridView MessagesDataGrid;
         private Label label32;
         private Label label36;

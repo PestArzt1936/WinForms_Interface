@@ -76,6 +76,19 @@ namespace GraphicInterfaceLab1
             temperatureChart.ChartAreas[0].BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             temperatureChart.Legends.Clear();
         }
+        void LabelsClear()
+        {
+            AxisXPosValue.Text = "0.0";
+            AxisXPosValue.Invalidate();
+            AxisYPosValue.Text = "0.0";
+            AxisYPosValue.Invalidate();
+            AxisZPosValue.Text = "0.0";
+            AxisZPosValue.Invalidate();
+            AxisCPosValue.Text = "0° 0' 0\"";
+            AxisCPosValue.Invalidate();
+            AxisCInvertPosValue.Text = "0° 0' 0\"";
+            AxisCInvertPosValue.Invalidate();
+        }
         private void Form1_load(object sender,EventArgs e)
         {
             try
@@ -132,6 +145,7 @@ namespace GraphicInterfaceLab1
             map.Add("Z", 3);
             map.Add("C", 4);
             map.Add("C'", 5);
+            LabelsClear();
             if (BoxOfHeads.SelectedItem == null)
             {
                 Choose = Disarmed;
@@ -147,12 +161,21 @@ namespace GraphicInterfaceLab1
                 if (SQLRuler.GetConnection().State == ConnectionState.Closed)
                     SQLRuler.OpenConnection();
                 MySqlCommand command;
+                MySqlCommand command2;
+                Dictionary<string,Label> labels = new Dictionary<string,Label>();
+                labels.Add("X",AxisXPosValue);
+                labels.Add("Y", AxisYPosValue);
+                labels.Add("Z",AxisZPosValue);
+                labels.Add("C", AxisCPosValue);
+                labels.Add("C'", AxisCInvertPosValue);
+                DataTable dt2 = new DataTable();
                 command = new MySqlCommand("select * from dashboard.drive where id_mth=(select id_mth from dashboard.machine_tool_head where id_mtn=(select id_mtn from dashboard.machine_tool_name where id_mt=(SELECT id_mt FROM dashboard.machine_tool_type where type=\""+BoxOfTypes.SelectedItem.ToString()+"\") and machine_tool_name=\""+BoxOfNames.SelectedItem.ToString()+"\") and head_type=\""+BoxOfHeads.SelectedItem.ToString()+"\");", SQLRuler.GetConnection());
                 adapter.SelectCommand = command;
                 dt.Clear();
                 adapter.Fill(dt);
-                if (SQLRuler.GetConnection().State == ConnectionState.Open)
-                    SQLRuler.CloseConnection();
+                command2 = new MySqlCommand("select * from dashboard.position where id_drive between " + dt.Rows[0]["id_drive"] + " and " + dt.Rows[dt.Rows.Count - 1]["id_drive"].ToString() + ";", SQLRuler.GetConnection());
+                adapter.SelectCommand = command2;
+                adapter.Fill(dt2);
                 for (int j = 1; j < 6; j++)
                 {
                     foreach (DataRow row in dt.Rows)
@@ -160,6 +183,31 @@ namespace GraphicInterfaceLab1
                         if (j == map[row["drive_name"].ToString()] && Convert.ToInt32(row["drive_status"].ToString()) == 1)
                         {
                             Choose = Active;
+                            foreach(DataRow rr in dt2.Rows)
+                            {
+                                if (rr["id_drive"].ToString() == row["id_drive"].ToString())
+                                {
+                                    labels[row["drive_name"].ToString()].Text=rr["value"].ToString();
+                                    labels[row["drive_name"].ToString()].Invalidate();
+                                    //MessageBox.Show(rr["value"].ToString());
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                        else if (j == map[row["drive_name"].ToString()] && Convert.ToInt32(row["drive_status"].ToString()) == 0)
+                        {
+                            Choose = Disarmed;
+                            foreach (DataRow rr in dt2.Rows)
+                            {
+                                if (rr["id_drive"].ToString() == row["id_drive"].ToString())
+                                {
+                                    labels[row["drive_name"].ToString()].Text = rr["value"].ToString();
+                                    labels[row["drive_name"].ToString()].Invalidate();
+                                    //MessageBox.Show(rr["value"].ToString());
+                                    break;
+                                }
+                            }
                             break;
                         }
                         else
@@ -171,6 +219,10 @@ namespace GraphicInterfaceLab1
                         e.Graphics.FillEllipse(brush, 1, 1 + (53 * (j - 1)), 49, 30);
                     }
                 }
+                labels.Clear();
+                dt2.Clear();
+                if (SQLRuler.GetConnection().State == ConnectionState.Open)
+                    SQLRuler.CloseConnection();
             }
             
         }
@@ -467,7 +519,10 @@ namespace GraphicInterfaceLab1
                 if (BoxOfNames.Items.Count > 0)
                     BoxOfNames.SelectedIndex = 0;
                 else
+                {
                     BoxOfHeads.Items.Clear();
+                    LabelsClear();
+                }
             }
             catch ( Exception ex )
             {
@@ -499,6 +554,8 @@ namespace GraphicInterfaceLab1
                 BoxOfHeads.Refresh();
                 if (BoxOfHeads.Items.Count > 0)
                     BoxOfHeads.SelectedIndex = 0;
+                else
+                    LabelsClear();
             }
             catch (Exception ex)
             {
