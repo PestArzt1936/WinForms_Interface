@@ -32,10 +32,11 @@ namespace GraphicInterfaceLab1
         
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Button ProgrammButton;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.AnalyzeButton = new System.Windows.Forms.Button();
             this.MainButton = new System.Windows.Forms.Button();
@@ -61,21 +62,21 @@ namespace GraphicInterfaceLab1
             this.label52 = new System.Windows.Forms.Label();
             this.StatusPanel = new System.Windows.Forms.Panel();
             this.TemperatureValuesPanel = new System.Windows.Forms.Panel();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
+            this.AxisCInvertTempMax = new System.Windows.Forms.Label();
+            this.AxisCTempMax = new System.Windows.Forms.Label();
+            this.AxisZTempMax = new System.Windows.Forms.Label();
+            this.AxisYTempMax = new System.Windows.Forms.Label();
+            this.AxisXTempMax = new System.Windows.Forms.Label();
+            this.AxisCInvertTempAvg = new System.Windows.Forms.Label();
+            this.AxisCTempAvg = new System.Windows.Forms.Label();
+            this.AxisZTempAvg = new System.Windows.Forms.Label();
+            this.AxisYTempAvg = new System.Windows.Forms.Label();
+            this.AxisXTempAvg = new System.Windows.Forms.Label();
+            this.AxisCInvertTempCur = new System.Windows.Forms.Label();
+            this.AxisCTempCur = new System.Windows.Forms.Label();
+            this.AxisZTempCur = new System.Windows.Forms.Label();
+            this.AxisYTempCur = new System.Windows.Forms.Label();
+            this.AxisXTempCur = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
@@ -125,6 +126,7 @@ namespace GraphicInterfaceLab1
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ProgrammButton = new System.Windows.Forms.Button();
             this.MainPanel.SuspendLayout();
             this.InfoPanel.SuspendLayout();
@@ -472,190 +474,190 @@ namespace GraphicInterfaceLab1
             // 
             // TemperatureValuesPanel
             // 
-            this.TemperatureValuesPanel.Controls.Add(this.label51);
-            this.TemperatureValuesPanel.Controls.Add(this.label50);
-            this.TemperatureValuesPanel.Controls.Add(this.label49);
-            this.TemperatureValuesPanel.Controls.Add(this.label48);
-            this.TemperatureValuesPanel.Controls.Add(this.label47);
-            this.TemperatureValuesPanel.Controls.Add(this.label46);
-            this.TemperatureValuesPanel.Controls.Add(this.label45);
-            this.TemperatureValuesPanel.Controls.Add(this.label44);
-            this.TemperatureValuesPanel.Controls.Add(this.label43);
-            this.TemperatureValuesPanel.Controls.Add(this.label42);
-            this.TemperatureValuesPanel.Controls.Add(this.label41);
-            this.TemperatureValuesPanel.Controls.Add(this.label40);
-            this.TemperatureValuesPanel.Controls.Add(this.label39);
-            this.TemperatureValuesPanel.Controls.Add(this.label38);
-            this.TemperatureValuesPanel.Controls.Add(this.label37);
+            this.TemperatureValuesPanel.Controls.Add(this.AxisCInvertTempMax);
+            this.TemperatureValuesPanel.Controls.Add(this.AxisCTempMax);
+            this.TemperatureValuesPanel.Controls.Add(this.AxisZTempMax);
+            this.TemperatureValuesPanel.Controls.Add(this.AxisYTempMax);
+            this.TemperatureValuesPanel.Controls.Add(this.AxisXTempMax);
+            this.TemperatureValuesPanel.Controls.Add(this.AxisCInvertTempAvg);
+            this.TemperatureValuesPanel.Controls.Add(this.AxisCTempAvg);
+            this.TemperatureValuesPanel.Controls.Add(this.AxisZTempAvg);
+            this.TemperatureValuesPanel.Controls.Add(this.AxisYTempAvg);
+            this.TemperatureValuesPanel.Controls.Add(this.AxisXTempAvg);
+            this.TemperatureValuesPanel.Controls.Add(this.AxisCInvertTempCur);
+            this.TemperatureValuesPanel.Controls.Add(this.AxisCTempCur);
+            this.TemperatureValuesPanel.Controls.Add(this.AxisZTempCur);
+            this.TemperatureValuesPanel.Controls.Add(this.AxisYTempCur);
+            this.TemperatureValuesPanel.Controls.Add(this.AxisXTempCur);
             this.TemperatureValuesPanel.Location = new System.Drawing.Point(197, 407);
             this.TemperatureValuesPanel.Name = "TemperatureValuesPanel";
             this.TemperatureValuesPanel.Size = new System.Drawing.Size(366, 247);
             this.TemperatureValuesPanel.TabIndex = 27;
             // 
-            // label51
+            // AxisCInvertTempMax
             // 
-            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label51.ForeColor = System.Drawing.Color.White;
-            this.label51.Location = new System.Drawing.Point(250, 196);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(118, 45);
-            this.label51.TabIndex = 34;
-            this.label51.Text = "0.0";
-            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisCInvertTempMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisCInvertTempMax.ForeColor = System.Drawing.Color.White;
+            this.AxisCInvertTempMax.Location = new System.Drawing.Point(250, 196);
+            this.AxisCInvertTempMax.Name = "AxisCInvertTempMax";
+            this.AxisCInvertTempMax.Size = new System.Drawing.Size(118, 45);
+            this.AxisCInvertTempMax.TabIndex = 34;
+            this.AxisCInvertTempMax.Text = "0.0";
+            this.AxisCInvertTempMax.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label50
+            // AxisCTempMax
             // 
-            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label50.ForeColor = System.Drawing.Color.White;
-            this.label50.Location = new System.Drawing.Point(250, 147);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(118, 45);
-            this.label50.TabIndex = 33;
-            this.label50.Text = "0.0";
-            this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisCTempMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisCTempMax.ForeColor = System.Drawing.Color.White;
+            this.AxisCTempMax.Location = new System.Drawing.Point(250, 147);
+            this.AxisCTempMax.Name = "AxisCTempMax";
+            this.AxisCTempMax.Size = new System.Drawing.Size(118, 45);
+            this.AxisCTempMax.TabIndex = 33;
+            this.AxisCTempMax.Text = "0.0";
+            this.AxisCTempMax.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label49
+            // AxisZTempMax
             // 
-            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label49.ForeColor = System.Drawing.Color.White;
-            this.label49.Location = new System.Drawing.Point(250, 98);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(118, 45);
-            this.label49.TabIndex = 32;
-            this.label49.Text = "0.0";
-            this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisZTempMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisZTempMax.ForeColor = System.Drawing.Color.White;
+            this.AxisZTempMax.Location = new System.Drawing.Point(250, 98);
+            this.AxisZTempMax.Name = "AxisZTempMax";
+            this.AxisZTempMax.Size = new System.Drawing.Size(118, 45);
+            this.AxisZTempMax.TabIndex = 32;
+            this.AxisZTempMax.Text = "0.0";
+            this.AxisZTempMax.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label48
+            // AxisYTempMax
             // 
-            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label48.ForeColor = System.Drawing.Color.White;
-            this.label48.Location = new System.Drawing.Point(250, 49);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(118, 45);
-            this.label48.TabIndex = 31;
-            this.label48.Text = "0.0";
-            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisYTempMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisYTempMax.ForeColor = System.Drawing.Color.White;
+            this.AxisYTempMax.Location = new System.Drawing.Point(250, 49);
+            this.AxisYTempMax.Name = "AxisYTempMax";
+            this.AxisYTempMax.Size = new System.Drawing.Size(118, 45);
+            this.AxisYTempMax.TabIndex = 31;
+            this.AxisYTempMax.Text = "0.0";
+            this.AxisYTempMax.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label47
+            // AxisXTempMax
             // 
-            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label47.ForeColor = System.Drawing.Color.White;
-            this.label47.Location = new System.Drawing.Point(250, 0);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(118, 45);
-            this.label47.TabIndex = 30;
-            this.label47.Text = "0.0";
-            this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisXTempMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisXTempMax.ForeColor = System.Drawing.Color.White;
+            this.AxisXTempMax.Location = new System.Drawing.Point(250, 0);
+            this.AxisXTempMax.Name = "AxisXTempMax";
+            this.AxisXTempMax.Size = new System.Drawing.Size(118, 45);
+            this.AxisXTempMax.TabIndex = 30;
+            this.AxisXTempMax.Text = "0.0";
+            this.AxisXTempMax.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label46
+            // AxisCInvertTempAvg
             // 
-            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label46.ForeColor = System.Drawing.Color.White;
-            this.label46.Location = new System.Drawing.Point(128, 196);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(118, 45);
-            this.label46.TabIndex = 29;
-            this.label46.Text = "0.0";
-            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisCInvertTempAvg.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisCInvertTempAvg.ForeColor = System.Drawing.Color.White;
+            this.AxisCInvertTempAvg.Location = new System.Drawing.Point(128, 196);
+            this.AxisCInvertTempAvg.Name = "AxisCInvertTempAvg";
+            this.AxisCInvertTempAvg.Size = new System.Drawing.Size(118, 45);
+            this.AxisCInvertTempAvg.TabIndex = 29;
+            this.AxisCInvertTempAvg.Text = "0.0";
+            this.AxisCInvertTempAvg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label45
+            // AxisCTempAvg
             // 
-            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label45.ForeColor = System.Drawing.Color.White;
-            this.label45.Location = new System.Drawing.Point(128, 147);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(118, 45);
-            this.label45.TabIndex = 28;
-            this.label45.Text = "0.0";
-            this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisCTempAvg.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisCTempAvg.ForeColor = System.Drawing.Color.White;
+            this.AxisCTempAvg.Location = new System.Drawing.Point(128, 147);
+            this.AxisCTempAvg.Name = "AxisCTempAvg";
+            this.AxisCTempAvg.Size = new System.Drawing.Size(118, 45);
+            this.AxisCTempAvg.TabIndex = 28;
+            this.AxisCTempAvg.Text = "0.0";
+            this.AxisCTempAvg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label44
+            // AxisZTempAvg
             // 
-            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label44.ForeColor = System.Drawing.Color.White;
-            this.label44.Location = new System.Drawing.Point(128, 98);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(118, 45);
-            this.label44.TabIndex = 27;
-            this.label44.Text = "0.0";
-            this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisZTempAvg.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisZTempAvg.ForeColor = System.Drawing.Color.White;
+            this.AxisZTempAvg.Location = new System.Drawing.Point(128, 98);
+            this.AxisZTempAvg.Name = "AxisZTempAvg";
+            this.AxisZTempAvg.Size = new System.Drawing.Size(118, 45);
+            this.AxisZTempAvg.TabIndex = 27;
+            this.AxisZTempAvg.Text = "0.0";
+            this.AxisZTempAvg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label43
+            // AxisYTempAvg
             // 
-            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label43.ForeColor = System.Drawing.Color.White;
-            this.label43.Location = new System.Drawing.Point(128, 49);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(118, 45);
-            this.label43.TabIndex = 26;
-            this.label43.Text = "0.0";
-            this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisYTempAvg.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisYTempAvg.ForeColor = System.Drawing.Color.White;
+            this.AxisYTempAvg.Location = new System.Drawing.Point(128, 49);
+            this.AxisYTempAvg.Name = "AxisYTempAvg";
+            this.AxisYTempAvg.Size = new System.Drawing.Size(118, 45);
+            this.AxisYTempAvg.TabIndex = 26;
+            this.AxisYTempAvg.Text = "0.0";
+            this.AxisYTempAvg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label42
+            // AxisXTempAvg
             // 
-            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label42.ForeColor = System.Drawing.Color.White;
-            this.label42.Location = new System.Drawing.Point(128, 0);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(118, 45);
-            this.label42.TabIndex = 25;
-            this.label42.Text = "0.0";
-            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisXTempAvg.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisXTempAvg.ForeColor = System.Drawing.Color.White;
+            this.AxisXTempAvg.Location = new System.Drawing.Point(128, 0);
+            this.AxisXTempAvg.Name = "AxisXTempAvg";
+            this.AxisXTempAvg.Size = new System.Drawing.Size(118, 45);
+            this.AxisXTempAvg.TabIndex = 25;
+            this.AxisXTempAvg.Text = "0.0";
+            this.AxisXTempAvg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label41
+            // AxisCInvertTempCur
             // 
-            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label41.ForeColor = System.Drawing.Color.White;
-            this.label41.Location = new System.Drawing.Point(0, 196);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(118, 45);
-            this.label41.TabIndex = 24;
-            this.label41.Text = "0.0";
-            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisCInvertTempCur.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisCInvertTempCur.ForeColor = System.Drawing.Color.White;
+            this.AxisCInvertTempCur.Location = new System.Drawing.Point(0, 196);
+            this.AxisCInvertTempCur.Name = "AxisCInvertTempCur";
+            this.AxisCInvertTempCur.Size = new System.Drawing.Size(118, 45);
+            this.AxisCInvertTempCur.TabIndex = 24;
+            this.AxisCInvertTempCur.Text = "0.0";
+            this.AxisCInvertTempCur.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label40
+            // AxisCTempCur
             // 
-            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label40.ForeColor = System.Drawing.Color.White;
-            this.label40.Location = new System.Drawing.Point(0, 147);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(118, 45);
-            this.label40.TabIndex = 23;
-            this.label40.Text = "0.0";
-            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisCTempCur.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisCTempCur.ForeColor = System.Drawing.Color.White;
+            this.AxisCTempCur.Location = new System.Drawing.Point(0, 147);
+            this.AxisCTempCur.Name = "AxisCTempCur";
+            this.AxisCTempCur.Size = new System.Drawing.Size(118, 45);
+            this.AxisCTempCur.TabIndex = 23;
+            this.AxisCTempCur.Text = "0.0";
+            this.AxisCTempCur.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label39
+            // AxisZTempCur
             // 
-            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label39.ForeColor = System.Drawing.Color.White;
-            this.label39.Location = new System.Drawing.Point(0, 98);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(118, 45);
-            this.label39.TabIndex = 22;
-            this.label39.Text = "0.0";
-            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisZTempCur.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisZTempCur.ForeColor = System.Drawing.Color.White;
+            this.AxisZTempCur.Location = new System.Drawing.Point(0, 98);
+            this.AxisZTempCur.Name = "AxisZTempCur";
+            this.AxisZTempCur.Size = new System.Drawing.Size(118, 45);
+            this.AxisZTempCur.TabIndex = 22;
+            this.AxisZTempCur.Text = "0.0";
+            this.AxisZTempCur.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label38
+            // AxisYTempCur
             // 
-            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label38.ForeColor = System.Drawing.Color.White;
-            this.label38.Location = new System.Drawing.Point(0, 49);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(118, 45);
-            this.label38.TabIndex = 21;
-            this.label38.Text = "0.0";
-            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisYTempCur.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisYTempCur.ForeColor = System.Drawing.Color.White;
+            this.AxisYTempCur.Location = new System.Drawing.Point(0, 49);
+            this.AxisYTempCur.Name = "AxisYTempCur";
+            this.AxisYTempCur.Size = new System.Drawing.Size(118, 45);
+            this.AxisYTempCur.TabIndex = 21;
+            this.AxisYTempCur.Text = "0.0";
+            this.AxisYTempCur.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label37
+            // AxisXTempCur
             // 
-            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.label37.ForeColor = System.Drawing.Color.White;
-            this.label37.Location = new System.Drawing.Point(0, 0);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(118, 45);
-            this.label37.TabIndex = 20;
-            this.label37.Text = "0.0";
-            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AxisXTempCur.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.AxisXTempCur.ForeColor = System.Drawing.Color.White;
+            this.AxisXTempCur.Location = new System.Drawing.Point(0, 0);
+            this.AxisXTempCur.Name = "AxisXTempCur";
+            this.AxisXTempCur.Size = new System.Drawing.Size(118, 45);
+            this.AxisXTempCur.TabIndex = 20;
+            this.AxisXTempCur.Text = "0.0";
+            this.AxisXTempCur.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label36
             // 
@@ -1004,23 +1006,24 @@ namespace GraphicInterfaceLab1
             this.ReloadChartButton.TabIndex = 1;
             this.ReloadChartButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.ReloadChartButton.UseVisualStyleBackColor = true;
+            this.ReloadChartButton.Click += new System.EventHandler(this.ReloadChartButton_Click);
             // 
             // temperatureChart
             // 
             this.temperatureChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             this.temperatureChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             this.temperatureChart.BorderSkin.PageColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            chartArea3.Name = "ChartArea1";
-            this.temperatureChart.ChartAreas.Add(chartArea3);
+            chartArea1.Name = "ChartArea1";
+            this.temperatureChart.ChartAreas.Add(chartArea1);
             this.temperatureChart.Location = new System.Drawing.Point(41, 69);
             this.temperatureChart.Name = "temperatureChart";
-            series3.BorderWidth = 2;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.IsXValueIndexed = true;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.temperatureChart.Series.Add(series3);
+            series1.BorderWidth = 2;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.IsXValueIndexed = true;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.temperatureChart.Series.Add(series1);
             this.temperatureChart.Size = new System.Drawing.Size(610, 551);
             this.temperatureChart.TabIndex = 0;
             this.temperatureChart.Text = "Температура";
@@ -1224,6 +1227,11 @@ namespace GraphicInterfaceLab1
             this.label1.Text = "RHINO";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 15000;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1336,27 +1344,28 @@ namespace GraphicInterfaceLab1
         private Label label34;
         private Label label33;
         private Panel TemperatureValuesPanel;
-        private Label label41;
-        private Label label40;
-        private Label label39;
-        private Label label38;
-        private Label label37;
-        private Label label42;
-        private Label label51;
-        private Label label50;
-        private Label label49;
-        private Label label48;
-        private Label label47;
-        private Label label46;
-        private Label label45;
-        private Label label44;
-        private Label label43;
+        private Label AxisCInvertTempCur;
+        private Label AxisCTempCur;
+        private Label AxisZTempCur;
+        private Label AxisYTempCur;
+        private Label AxisXTempCur;
+        private Label AxisXTempAvg;
+        private Label AxisCInvertTempMax;
+        private Label AxisCTempMax;
+        private Label AxisZTempMax;
+        private Label AxisYTempMax;
+        private Label AxisXTempMax;
+        private Label AxisCInvertTempAvg;
+        private Label AxisCTempAvg;
+        private Label AxisZTempAvg;
+        private Label AxisYTempAvg;
         private Button ReloadChartButton;
         private Panel StatusPanel;
         private Label label53;
         private Label label52;
         private Label label54;
         private Label label55;
+        private Timer timer1;
     }
 }
 

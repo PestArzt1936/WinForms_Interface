@@ -16,11 +16,16 @@ namespace GraphicInterfaceLab1
 {
     public partial class Form1 : Form
     {
+        private int timerCounter = 0;
         private SQLRuler SQLRuler;
         private MySqlDataAdapter adapter;
         private DataTable dt;
         private Button ActiveMessageState;
         private LimitedCollection<LogMessage> messages = new LimitedCollection<LogMessage>(6);
+        private int Time = 1;
+        Dictionary<string, int> map = new Dictionary<string, int>() { { "X", 1 }, { "Y", 2 }, { "Z", 3 }, { "C", 4 }, { "C'", 5 } };
+        bool DrawChart= false;
+        int TimeRowCount = 0;
         public Form1()
         {
             SQLRuler = new SQLRuler();
@@ -38,11 +43,14 @@ namespace GraphicInterfaceLab1
             //Раздел графика
             this.Load += TemperatureChartForm;
             TemperatureValuesPanel.Paint += TemperatureValuesTable;
+            //Настройка таймера
+            timer1.Tick += Timer1_Tick;
+            timer1.Start();
             //Раздел статусов и значений
             StatusNdValuesPanel.Paint += StatusNdValuesPanelPaint;
             StatusPanel.Paint += StatusPanelPaint;
             //Тесты
-            this.Load += ChartTest;
+            //this.Load += ChartTest;
             //this.Load += MessageTest;
         }
         private void TemperatureChartForm(object sender, EventArgs e)
@@ -76,7 +84,111 @@ namespace GraphicInterfaceLab1
             temperatureChart.ChartAreas[0].BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             temperatureChart.Legends.Clear();
         }
-        void LabelsClear()
+        private async void Timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            try
+            {
+
+                if (BoxOfHeads.SelectedItem != null)
+                {
+                    if(SQLRuler.GetConnection().State == ConnectionState.Closed) {
+                    SQLRuler.OpenConnection();
+                    }
+                    LabelsTempClear();
+                    MySqlCommand command = new MySqlCommand("select * from dashboard.drive where id_mth=(select id_mth from dashboard.machine_tool_head where id_mtn=(select id_mtn from dashboard.machine_tool_name where id_mt=(SELECT id_mt FROM dashboard.machine_tool_type where type=\"" + BoxOfTypes.SelectedItem.ToString() + "\") and machine_tool_name=\"" + BoxOfNames.SelectedItem.ToString() + "\") and head_type=\"" + BoxOfHeads.SelectedItem.ToString() + "\");", SQLRuler.GetConnection());
+                    adapter.SelectCommand = command;
+                    dt.Clear();
+                    adapter.Fill(dt);
+                    MySqlCommand command1;
+                    DataTable dt1 = new DataTable();
+                    Dictionary<string, Label> CurTemp = new Dictionary<string, Label>() { { "X", AxisXTempCur }, { "Y", AxisYTempCur }, { "Z", AxisZTempCur }, { "C", AxisCTempCur }, { "C'", AxisCInvertTempCur } };
+                    Dictionary<string, Label> AvgTemp = new Dictionary<string, Label>() { { "X", AxisXTempAvg }, { "Y", AxisYTempAvg }, { "Z", AxisZTempAvg }, { "C", AxisCTempAvg }, { "C'", AxisCInvertTempAvg } };
+                    Dictionary<string, Label> MaxTemp = new Dictionary<string, Label>() { { "X", AxisXTempMax }, { "Y", AxisYTempMax }, { "Z", AxisZTempMax }, { "C", AxisCTempMax }, { "C'", AxisCInvertTempMax } };
+                    for (int i = 1; i <= map.Count(); i++)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            command1 = new MySqlCommand("select * from dashboard.temperature where id_drive=" + row["id_drive"] + ";", SQLRuler.GetConnection());
+                            adapter.SelectCommand = command1;
+                            dt1.Clear();
+                            adapter.Fill(dt1);
+                            //if (row["drive_name"].ToString()=="Z")
+                            //{
+                           //     MessageBox.Show(row["id_drive"].ToString());
+                           // }
+                            if (i == map[row["drive_name"].ToString()] && dt1.Rows.Count!=0)
+                            {
+                                CurTemp[row["drive_name"].ToString()].Text = dt1.Rows[timerCounter]["current_temp"].ToString();
+                                MySqlCommand command2 = new MySqlCommand("select avg(current_temp) from dashboard.temperature where id_drive=" + row["id_drive"] + ";",SQLRuler.GetConnection());
+                                adapter.SelectCommand = command2;
+                                DataTable dt2 = new DataTable();
+                                adapter.Fill(dt2);
+                                AvgTemp[row["drive_name"].ToString()].Text = dt2.Rows[0][0].ToString();
+                                MaxTemp[row["drive_name"].ToString()].Text = dt1.Rows[timerCounter]["max_temp"].ToString();
+                                break;
+                            }
+                        }
+                    }
+                    ChartAddPoint();
+                    timerCounter = timerCounter==0 ? 1 : 0;
+                }
+                else
+                {
+                    timerCounter = 0;
+                }
+            }
+            catch(Exception ex) {
+                MessageBox.Show($"Ошибка:{ex.Message}");
+            }
+            finally
+            {
+                if (SQLRuler.GetConnection().State == ConnectionState.Open)
+                {
+                    SQLRuler.CloseConnection();
+                }
+                timer1.Start();
+            }
+        }
+        void LabelsTempClear()
+        {
+            //Стирание данных температуры для оси X
+            AxisXTempCur.Text = "0.0";
+            AxisXTempCur.Invalidate();
+            AxisXTempAvg.Text = "0.0";
+            AxisXTempAvg.Invalidate();
+            AxisXTempMax.Text = "0.0";
+            AxisXTempMax.Invalidate();
+            //Стирание данных температуры для оси Y
+            AxisYTempCur.Text = "0.0";
+            AxisYTempCur.Invalidate();
+            AxisYTempAvg.Text = "0.0";
+            AxisYTempAvg.Invalidate();
+            AxisYTempMax.Text = "0.0";
+            AxisYTempMax.Invalidate();
+            //Стирание данных температуры для оси Z
+            AxisZTempCur.Text = "0.0";
+            AxisZTempCur.Invalidate();
+            AxisZTempAvg.Text = "0.0";
+            AxisZTempAvg.Invalidate();
+            AxisZTempMax.Text = "0.0";
+            AxisZTempMax.Invalidate();
+            //Стирание данных температуры для шпинделя C
+            AxisCTempCur.Text = "0.0";
+            AxisCTempCur.Invalidate();
+            AxisCTempAvg.Text = "0.0";
+            AxisCTempAvg.Invalidate();
+            AxisCTempMax.Text = "0.0";
+            AxisCTempMax.Invalidate();
+            //Стирание данных температуры для шпинделя C'
+            AxisCInvertTempCur.Text = "0.0";
+            AxisCInvertTempCur.Invalidate();
+            AxisCInvertTempAvg.Text = "0.0";
+            AxisCInvertTempAvg.Invalidate();
+            AxisCInvertTempMax.Text = "0.0";
+            AxisCInvertTempMax.Invalidate();
+        }
+        void LabelsPosClear()
         {
             AxisXPosValue.Text = "0.0";
             AxisXPosValue.Invalidate();
@@ -94,7 +206,7 @@ namespace GraphicInterfaceLab1
             try
             {
                 SQLRuler.OpenConnection();
-                AddNewMessage("Info", 0, 10, "Подключение к базе было установлено.");
+                AddNewMessage("info", 0, 10, "Подключение к базе было установлено.");
                 MySqlCommand command = new MySqlCommand("SELECT * FROM dashboard.machine_tool_type;", SQLRuler.GetConnection());
                 adapter.SelectCommand = command;
                 adapter.Fill(dt);
@@ -139,13 +251,8 @@ namespace GraphicInterfaceLab1
             Color Active = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(174)))), ((int)(((byte)(224)))));
             Color Disarmed = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(118)))), ((int)(((byte)(132)))));
             Color Choose = new Color();
-            Dictionary<string,int> map = new Dictionary<string, int>();
-            map.Add("X", 1);
-            map.Add("Y", 2);
-            map.Add("Z", 3);
-            map.Add("C", 4);
-            map.Add("C'", 5);
-            LabelsClear();
+            
+            LabelsPosClear();
             if (BoxOfHeads.SelectedItem == null)
             {
                 Choose = Disarmed;
@@ -162,12 +269,7 @@ namespace GraphicInterfaceLab1
                     SQLRuler.OpenConnection();
                 MySqlCommand command;
                 MySqlCommand command2;
-                Dictionary<string,Label> labels = new Dictionary<string,Label>();
-                labels.Add("X",AxisXPosValue);
-                labels.Add("Y", AxisYPosValue);
-                labels.Add("Z",AxisZPosValue);
-                labels.Add("C", AxisCPosValue);
-                labels.Add("C'", AxisCInvertPosValue);
+                Dictionary<string,Label> labels = new Dictionary<string, Label>() { { "X", AxisXPosValue },{ "Y", AxisYPosValue },{ "Z", AxisZPosValue },{ "C", AxisCPosValue },{ "C'", AxisCInvertPosValue } };
                 DataTable dt2 = new DataTable();
                 command = new MySqlCommand("select * from dashboard.drive where id_mth=(select id_mth from dashboard.machine_tool_head where id_mtn=(select id_mtn from dashboard.machine_tool_name where id_mt=(SELECT id_mt FROM dashboard.machine_tool_type where type=\""+BoxOfTypes.SelectedItem.ToString()+"\") and machine_tool_name=\""+BoxOfNames.SelectedItem.ToString()+"\") and head_type=\""+BoxOfHeads.SelectedItem.ToString()+"\");", SQLRuler.GetConnection());
                 adapter.SelectCommand = command;
@@ -264,11 +366,11 @@ namespace GraphicInterfaceLab1
         public void AddNewMessage(string Type,int Tunnel, int Code, string Description)
         {
             Image icon;
-            if(Type == "Warn")
+            if(Type == "warn")
             {
                 icon = Properties.Resources.attention_circle;
             }
-            else if(Type == "Info")
+            else if(Type == "info" || Type=="set")
             {
                 icon = Properties.Resources.message_checked;
             }
@@ -291,12 +393,12 @@ namespace GraphicInterfaceLab1
         }
         private void MessageTest(object sender, EventArgs e)
         {
-            AddNewMessage("Warn", 1, 404, "Something went wrong");
-            AddNewMessage("Warn", 3, 502, "DriveController не инициализирован");
-            AddNewMessage("Set", 0, 2300, "Постоянный циклы загружены успешно");
-            AddNewMessage("Warn", 0, 333, "ArtFireLib: OS ядра - семейства Windows, но не XP. Возможны проблемы при взаимодей...");
-            AddNewMessage("Info", 0, 1822, "Файловая система станка в норме.");
-            AddNewMessage("Info", 2, 5, "Connection succesful");
+            AddNewMessage("warn", 1, 404, "Something went wrong");
+            AddNewMessage("warn", 3, 502, "DriveController не инициализирован");
+            AddNewMessage("set", 0, 2300, "Постоянный циклы загружены успешно");
+            AddNewMessage("warn", 0, 333, "ArtFireLib: OS ядра - семейства Windows, но не XP. Возможны проблемы при взаимодей...");
+            AddNewMessage("info", 0, 1822, "Файловая система станка в норме.");
+            AddNewMessage("info", 2, 5, "Connection succesful");
             MessagesDataGrid.Invalidate();
         }
         private void MessagesDataGrid_CellFormating(object sender, DataGridViewCellFormattingEventArgs e)
@@ -305,11 +407,11 @@ namespace GraphicInterfaceLab1
             {
                 DataGridViewCell cell = MessagesDataGrid.Rows[e.RowIndex].Cells[e.ColumnIndex-1];
                 string type = (string)e.Value;
-                if(type == "Warn")
+                if(type == "warn")
                 {
                     cell.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
                 }
-                else if (type == "Info")
+                else if (type == "info" || type=="set")
                 {
                     cell.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(220)))), ((int)(((byte)(146)))));
                 }
@@ -521,7 +623,7 @@ namespace GraphicInterfaceLab1
                 else
                 {
                     BoxOfHeads.Items.Clear();
-                    LabelsClear();
+                    LabelsPosClear();
                 }
             }
             catch ( Exception ex )
@@ -534,7 +636,18 @@ namespace GraphicInterfaceLab1
                     SQLRuler.CloseConnection();
             }
         }
-
+        private void GetMessages()
+        {
+            MySqlCommand command;
+            command = new MySqlCommand("select * from dashboard.machine_tool_state where id_mtn=(select id_mtn from dashboard.machine_tool_name where id_mt=(select id_mt from dashboard.machine_tool_type where type=\"" + BoxOfTypes.SelectedItem.ToString() + "\") and machine_tool_name=\"" + BoxOfNames.SelectedItem.ToString() + "\");", SQLRuler.GetConnection());
+            adapter.SelectCommand = command;
+            dt.Clear();
+            adapter.Fill(dt);
+            foreach (DataRow rows in dt.Rows)
+            {
+                AddNewMessage(rows["status_type"].ToString(), Convert.ToInt32(rows["channel"].ToString()), Convert.ToInt32(rows["number"].ToString()), rows["description"].ToString());
+            }
+        }
         private void BoxOfNames_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -552,10 +665,14 @@ namespace GraphicInterfaceLab1
                     BoxOfHeads.Items.Add(rows["head_type"].ToString());
                 }
                 BoxOfHeads.Refresh();
+                GetMessages();
                 if (BoxOfHeads.Items.Count > 0)
                     BoxOfHeads.SelectedIndex = 0;
                 else
-                    LabelsClear();
+                {
+                    LabelsPosClear();
+                    LabelsTempClear();
+                }
             }
             catch (Exception ex)
             {
@@ -571,6 +688,66 @@ namespace GraphicInterfaceLab1
         private void BoxOfHeads_SelectedIndexChanged(object sender, EventArgs e)
         {
             StatusPanel.Invalidate();
+            DrawChart = false;
         }
+        void ChartAddPoint()
+        {
+            if (DrawChart)
+            {
+                try
+                {
+                    MySqlCommand command = new MySqlCommand("select * from dashboard.temperature where id_drive = (select id_drive from dashboard.drive where id_mth=(select id_mth from dashboard.machine_tool_head where id_mtn=(select id_mtn from dashboard.machine_tool_name where id_mt=(SELECT id_mt FROM dashboard.machine_tool_type where type=\"" + BoxOfTypes.SelectedItem.ToString() + "\") and machine_tool_name=\"" + BoxOfNames.SelectedItem.ToString() + "\") and head_type=\"" + BoxOfHeads.SelectedItem.ToString() + "\") and (drive_name=\"C\" or drive_name=\"C'\"));", SQLRuler.GetConnection());
+                    adapter.SelectCommand = command;
+                    dt.Clear();
+                    adapter.Fill(dt);
+                    if(dt.Rows.Count > 0)
+                    {
+                        TimeRowCount = dt.Rows.Count;
+                        DateTime baseDate = new DateTime(DateTime.Parse(dt.Rows[0]["time"].ToString()).Year, DateTime.Parse(dt.Rows[0]["time"].ToString()).Month, DateTime.Parse(dt.Rows[0]["time"].ToString()).Day);
+                        System.Windows.Forms.DataVisualization.Charting.Series series = new System.Windows.Forms.DataVisualization.Charting.Series("Температура привода");
+                        series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+                        series.Color = Color.Red;
+                        series.BorderWidth = 2;
+                        for (int i = 0; i < Time;i++) {
+                            series.Points.AddXY(DateTime.Parse(dt.Rows[i]["time"].ToString()), Convert.ToDouble(dt.Rows[i]["current_temp"].ToString())); 
+                        }
+                        temperatureChart.ChartAreas[0].AxisX.Minimum = baseDate.AddHours(6).ToOADate();
+                        temperatureChart.ChartAreas[0].AxisX.Maximum = baseDate.AddHours(18).ToOADate();
+                        temperatureChart.Series.Clear();
+                        temperatureChart.Series.Add(series);
+                        temperatureChart.Invalidate();
+                        if(Time<TimeRowCount)
+                        Time++;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка:{ex.Message}");
+                }
+                finally
+                {
+
+                }
+            }
+            else
+            {
+                Time = 0;
+                TimeRowCount = 0;
+            }
+        }
+        private void ReloadChartButton_Click(object sender, EventArgs e)
+        {
+            if (BoxOfHeads.Items.Count > 0 && DrawChart==false)
+            {
+                DrawChart = true;
+                ChartAddPoint();
+            }
+            else if(!(BoxOfHeads.Items.Count > 0))
+            {
+                DrawChart = false;
+                Time = 0;
+            }
+            
+            }
     }
 }
