@@ -221,7 +221,7 @@ namespace GraphicInterfaceLab1
             }
             catch (Exception exception)
             {
-                AddNewMessage("Warn", 0, 666, (string)exception.Message);
+                AddNewMessage("warn", 0, 666, (string)exception.Message);
             }
             finally
             {
@@ -628,7 +628,7 @@ namespace GraphicInterfaceLab1
             }
             catch ( Exception ex )
             {
-                AddNewMessage("Warn", 0, 666, (string)ex.Message);
+                AddNewMessage("warn", 0, 666, (string)ex.Message);
             }
             finally
             {
@@ -650,6 +650,18 @@ namespace GraphicInterfaceLab1
         }
         private void BoxOfNames_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (BoxOfNames.SelectedItem != null)
+            {
+                TextNameOfMachine.Text= BoxOfNames.SelectedItem.ToString();
+                TextTypeNName.Text= BoxOfTypes.SelectedItem.ToString()+" "+ BoxOfNames.SelectedItem.ToString();
+                Image machineImage = (Image)Properties.Resources.ResourceManager.GetObject(BoxOfNames.SelectedItem.ToString());
+                MachineImage.Image = machineImage;
+            }
+            else
+            {
+                TextNameOfMachine.Text = "None";
+                TextTypeNName.Text= "None";
+            }
             try
             {
                 if (SQLRuler.GetConnection().State == ConnectionState.Closed)

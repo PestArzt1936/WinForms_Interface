@@ -145,5 +145,17 @@
   <ItemGroup>
     <None Include="Resources\message-checked.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ST-30F.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ST-15F.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TL-10F.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SL40.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
