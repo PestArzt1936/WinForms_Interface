@@ -632,6 +632,7 @@ namespace GraphicInterfaceLab1
             }
             finally
             {
+                Time = 0;
                 if (SQLRuler.GetConnection().State == ConnectionState.Open)
                     SQLRuler.CloseConnection();
             }
@@ -656,6 +657,7 @@ namespace GraphicInterfaceLab1
                 TextTypeNName.Text= BoxOfTypes.SelectedItem.ToString()+" "+ BoxOfNames.SelectedItem.ToString();
                 Image machineImage = (Image)Properties.Resources.ResourceManager.GetObject(BoxOfNames.SelectedItem.ToString());
                 MachineImage.Image = machineImage;
+                
             }
             else
             {
@@ -692,6 +694,7 @@ namespace GraphicInterfaceLab1
             }
             finally
             {
+                Time = 0;
                 if (SQLRuler.GetConnection().State == ConnectionState.Open)
                     SQLRuler.CloseConnection();
             }
@@ -699,7 +702,10 @@ namespace GraphicInterfaceLab1
 
         private void BoxOfHeads_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Time = 0;
             StatusPanel.Invalidate();
+            LabelsPosClear();
+            LabelsTempClear();
             DrawChart = false;
         }
         void ChartAddPoint()
