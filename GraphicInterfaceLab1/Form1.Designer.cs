@@ -33,17 +33,24 @@ namespace GraphicInterfaceLab1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.Button ProgrammButton;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.AnalyzeButton = new System.Windows.Forms.Button();
+            this.MainButton = new System.Windows.Forms.Button();
             this.BoxOfTypes = new System.Windows.Forms.ComboBox();
             this.BoxOfNames = new System.Windows.Forms.ComboBox();
             this.BoxOfHeads = new System.Windows.Forms.ComboBox();
             this.InfoPanel = new System.Windows.Forms.Panel();
+            this.MachineImage = new System.Windows.Forms.Label();
             this.TextNameOfMachine = new System.Windows.Forms.Label();
             this.MachineActsPanel = new System.Windows.Forms.Panel();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.AxisViewPanel = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -81,6 +88,7 @@ namespace GraphicInterfaceLab1
             this.AxisZPosValue = new System.Windows.Forms.Label();
             this.AxisYPosValue = new System.Windows.Forms.Label();
             this.AxisXPosValue = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -100,6 +108,7 @@ namespace GraphicInterfaceLab1
             this.ChartPanel = new System.Windows.Forms.Panel();
             this.label55 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
+            this.ReloadChartButton = new System.Windows.Forms.Button();
             this.temperatureChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.MessagesPanel = new System.Windows.Forms.Panel();
             this.MessagesDataGrid = new System.Windows.Forms.DataGridView();
@@ -118,16 +127,7 @@ namespace GraphicInterfaceLab1
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.MachineImage = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ReloadChartButton = new System.Windows.Forms.Button();
-            this.label26 = new System.Windows.Forms.Label();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.AnalyzeButton = new System.Windows.Forms.Button();
-            this.MainButton = new System.Windows.Forms.Button();
             ProgrammButton = new System.Windows.Forms.Button();
             this.MainPanel.SuspendLayout();
             this.InfoPanel.SuspendLayout();
@@ -141,6 +141,22 @@ namespace GraphicInterfaceLab1
             ((System.ComponentModel.ISupportInitialize)(this.MessagesDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
+            // ProgrammButton
+            // 
+            ProgrammButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
+            ProgrammButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            ProgrammButton.ForeColor = System.Drawing.Color.White;
+            ProgrammButton.Image = ((System.Drawing.Image)(resources.GetObject("ProgrammButton.Image")));
+            ProgrammButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            ProgrammButton.Location = new System.Drawing.Point(0, 95);
+            ProgrammButton.Margin = new System.Windows.Forms.Padding(2);
+            ProgrammButton.Name = "ProgrammButton";
+            ProgrammButton.Size = new System.Drawing.Size(272, 62);
+            ProgrammButton.TabIndex = 1;
+            ProgrammButton.Text = "Программа";
+            ProgrammButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            ProgrammButton.UseVisualStyleBackColor = false;
+            // 
             // MainPanel
             // 
             this.MainPanel.Controls.Add(this.AnalyzeButton);
@@ -151,6 +167,43 @@ namespace GraphicInterfaceLab1
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(272, 252);
             this.MainPanel.TabIndex = 0;
+            // 
+            // AnalyzeButton
+            // 
+            this.AnalyzeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
+            this.AnalyzeButton.FlatAppearance.BorderSize = 0;
+            this.AnalyzeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.AnalyzeButton.ForeColor = System.Drawing.Color.White;
+            this.AnalyzeButton.Image = ((System.Drawing.Image)(resources.GetObject("AnalyzeButton.Image")));
+            this.AnalyzeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AnalyzeButton.Location = new System.Drawing.Point(0, 190);
+            this.AnalyzeButton.Margin = new System.Windows.Forms.Padding(2);
+            this.AnalyzeButton.Name = "AnalyzeButton";
+            this.AnalyzeButton.Size = new System.Drawing.Size(272, 62);
+            this.AnalyzeButton.TabIndex = 2;
+            this.AnalyzeButton.Text = "Мониторинг";
+            this.AnalyzeButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AnalyzeButton.UseCompatibleTextRendering = true;
+            this.AnalyzeButton.UseVisualStyleBackColor = false;
+            // 
+            // MainButton
+            // 
+            this.MainButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
+            this.MainButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.MainButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
+            this.MainButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.MainButton.ForeColor = System.Drawing.Color.White;
+            this.MainButton.Image = ((System.Drawing.Image)(resources.GetObject("MainButton.Image")));
+            this.MainButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MainButton.Location = new System.Drawing.Point(0, 0);
+            this.MainButton.Margin = new System.Windows.Forms.Padding(2);
+            this.MainButton.Name = "MainButton";
+            this.MainButton.Size = new System.Drawing.Size(272, 62);
+            this.MainButton.TabIndex = 0;
+            this.MainButton.Text = "Главная";
+            this.MainButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.MainButton.UseCompatibleTextRendering = true;
+            this.MainButton.UseVisualStyleBackColor = false;
             // 
             // BoxOfTypes
             // 
@@ -211,6 +264,14 @@ namespace GraphicInterfaceLab1
             this.InfoPanel.Size = new System.Drawing.Size(270, 329);
             this.InfoPanel.TabIndex = 4;
             // 
+            // MachineImage
+            // 
+            this.MachineImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.MachineImage.Location = new System.Drawing.Point(9, 6);
+            this.MachineImage.Name = "MachineImage";
+            this.MachineImage.Size = new System.Drawing.Size(254, 169);
+            this.MachineImage.TabIndex = 3;
+            // 
             // TextNameOfMachine
             // 
             this.TextNameOfMachine.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
@@ -233,6 +294,48 @@ namespace GraphicInterfaceLab1
             this.MachineActsPanel.Name = "MachineActsPanel";
             this.MachineActsPanel.Size = new System.Drawing.Size(264, 55);
             this.MachineActsPanel.TabIndex = 1;
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.button13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button13.BackgroundImage")));
+            this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button13.Location = new System.Drawing.Point(209, 5);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(51, 44);
+            this.button13.TabIndex = 3;
+            this.button13.UseVisualStyleBackColor = false;
+            // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.button12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button12.BackgroundImage")));
+            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button12.Location = new System.Drawing.Point(142, 5);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(51, 44);
+            this.button12.TabIndex = 2;
+            this.button12.UseVisualStyleBackColor = false;
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
+            this.button11.Location = new System.Drawing.Point(73, 5);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(51, 44);
+            this.button11.TabIndex = 1;
+            this.button11.UseVisualStyleBackColor = false;
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
+            this.button10.Location = new System.Drawing.Point(4, 5);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(51, 44);
+            this.button10.TabIndex = 0;
+            this.button10.UseVisualStyleBackColor = false;
             // 
             // AxisViewPanel
             // 
@@ -676,6 +779,15 @@ namespace GraphicInterfaceLab1
             this.AxisXPosValue.Text = "0.0";
             this.AxisXPosValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label26
+            // 
+            this.label26.Image = ((System.Drawing.Image)(resources.GetObject("label26.Image")));
+            this.label26.Location = new System.Drawing.Point(85, 367);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(40, 40);
+            this.label26.TabIndex = 16;
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label25
             // 
             this.label25.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
@@ -894,22 +1006,34 @@ namespace GraphicInterfaceLab1
             this.label54.TabIndex = 2;
             this.label54.Text = "T,°C";
             // 
+            // ReloadChartButton
+            // 
+            this.ReloadChartButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReloadChartButton.BackgroundImage")));
+            this.ReloadChartButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ReloadChartButton.Location = new System.Drawing.Point(604, 61);
+            this.ReloadChartButton.Name = "ReloadChartButton";
+            this.ReloadChartButton.Size = new System.Drawing.Size(30, 30);
+            this.ReloadChartButton.TabIndex = 1;
+            this.ReloadChartButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ReloadChartButton.UseVisualStyleBackColor = true;
+            this.ReloadChartButton.Click += new System.EventHandler(this.ReloadChartButton_Click);
+            // 
             // temperatureChart
             // 
             this.temperatureChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             this.temperatureChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
             this.temperatureChart.BorderSkin.PageColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            chartArea1.Name = "ChartArea1";
-            this.temperatureChart.ChartAreas.Add(chartArea1);
+            chartArea5.Name = "ChartArea1";
+            this.temperatureChart.ChartAreas.Add(chartArea5);
             this.temperatureChart.Location = new System.Drawing.Point(41, 69);
             this.temperatureChart.Name = "temperatureChart";
-            series1.BorderWidth = 2;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.IsXValueIndexed = true;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.temperatureChart.Series.Add(series1);
+            series5.BorderWidth = 2;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.IsXValueIndexed = true;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.temperatureChart.Series.Add(series5);
             this.temperatureChart.Size = new System.Drawing.Size(610, 551);
             this.temperatureChart.TabIndex = 0;
             this.temperatureChart.Text = "Температура";
@@ -1105,14 +1229,6 @@ namespace GraphicInterfaceLab1
             this.timer1.Enabled = true;
             this.timer1.Interval = 15000;
             // 
-            // MachineImage
-            // 
-            this.MachineImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.MachineImage.Location = new System.Drawing.Point(9, 6);
-            this.MachineImage.Name = "MachineImage";
-            this.MachineImage.Size = new System.Drawing.Size(254, 169);
-            this.MachineImage.TabIndex = 3;
-            // 
             // label1
             // 
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -1125,122 +1241,6 @@ namespace GraphicInterfaceLab1
             this.label1.TabIndex = 8;
             this.label1.Text = "RHINO";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // ReloadChartButton
-            // 
-            this.ReloadChartButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReloadChartButton.BackgroundImage")));
-            this.ReloadChartButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ReloadChartButton.Location = new System.Drawing.Point(604, 61);
-            this.ReloadChartButton.Name = "ReloadChartButton";
-            this.ReloadChartButton.Size = new System.Drawing.Size(30, 30);
-            this.ReloadChartButton.TabIndex = 1;
-            this.ReloadChartButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.ReloadChartButton.UseVisualStyleBackColor = true;
-            this.ReloadChartButton.Click += new System.EventHandler(this.ReloadChartButton_Click);
-            // 
-            // label26
-            // 
-            this.label26.Image = ((System.Drawing.Image)(resources.GetObject("label26.Image")));
-            this.label26.Location = new System.Drawing.Point(85, 367);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(40, 40);
-            this.label26.TabIndex = 16;
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button13
-            // 
-            this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
-            this.button13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button13.BackgroundImage")));
-            this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button13.Location = new System.Drawing.Point(209, 5);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(51, 44);
-            this.button13.TabIndex = 3;
-            this.button13.UseVisualStyleBackColor = false;
-            // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
-            this.button12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button12.BackgroundImage")));
-            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button12.Location = new System.Drawing.Point(142, 5);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(51, 44);
-            this.button12.TabIndex = 2;
-            this.button12.UseVisualStyleBackColor = false;
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
-            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
-            this.button11.Location = new System.Drawing.Point(73, 5);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(51, 44);
-            this.button11.TabIndex = 1;
-            this.button11.UseVisualStyleBackColor = false;
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
-            this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
-            this.button10.Location = new System.Drawing.Point(4, 5);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(51, 44);
-            this.button10.TabIndex = 0;
-            this.button10.UseVisualStyleBackColor = false;
-            // 
-            // AnalyzeButton
-            // 
-            this.AnalyzeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
-            this.AnalyzeButton.FlatAppearance.BorderSize = 0;
-            this.AnalyzeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.AnalyzeButton.ForeColor = System.Drawing.Color.White;
-            this.AnalyzeButton.Image = ((System.Drawing.Image)(resources.GetObject("AnalyzeButton.Image")));
-            this.AnalyzeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AnalyzeButton.Location = new System.Drawing.Point(0, 190);
-            this.AnalyzeButton.Margin = new System.Windows.Forms.Padding(2);
-            this.AnalyzeButton.Name = "AnalyzeButton";
-            this.AnalyzeButton.Size = new System.Drawing.Size(272, 62);
-            this.AnalyzeButton.TabIndex = 2;
-            this.AnalyzeButton.Text = "Мониторинг";
-            this.AnalyzeButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AnalyzeButton.UseCompatibleTextRendering = true;
-            this.AnalyzeButton.UseVisualStyleBackColor = false;
-            // 
-            // ProgrammButton
-            // 
-            ProgrammButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
-            ProgrammButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            ProgrammButton.ForeColor = System.Drawing.Color.White;
-            ProgrammButton.Image = ((System.Drawing.Image)(resources.GetObject("ProgrammButton.Image")));
-            ProgrammButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            ProgrammButton.Location = new System.Drawing.Point(0, 95);
-            ProgrammButton.Margin = new System.Windows.Forms.Padding(2);
-            ProgrammButton.Name = "ProgrammButton";
-            ProgrammButton.Size = new System.Drawing.Size(272, 62);
-            ProgrammButton.TabIndex = 1;
-            ProgrammButton.Text = "Программа";
-            ProgrammButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            ProgrammButton.UseVisualStyleBackColor = false;
-            // 
-            // MainButton
-            // 
-            this.MainButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
-            this.MainButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.MainButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
-            this.MainButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.MainButton.ForeColor = System.Drawing.Color.White;
-            this.MainButton.Image = ((System.Drawing.Image)(resources.GetObject("MainButton.Image")));
-            this.MainButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MainButton.Location = new System.Drawing.Point(0, 0);
-            this.MainButton.Margin = new System.Windows.Forms.Padding(2);
-            this.MainButton.Name = "MainButton";
-            this.MainButton.Size = new System.Drawing.Size(272, 62);
-            this.MainButton.TabIndex = 0;
-            this.MainButton.Text = "Главная";
-            this.MainButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MainButton.UseCompatibleTextRendering = true;
-            this.MainButton.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
